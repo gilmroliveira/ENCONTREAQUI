@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Cadastro/Edição de Usuário</title>
+    </head>
+<body>
+    <header>
+        <h1>Área de Administração</h1>
+        <nav>
+            <ul>
+                <li><a href="../publico/index.html">Página Inicial encontreaqui</a></li>
+                <li><a href="login.html">Login (Admin)</a></li>
+                <li><a href="temas_lista.html">Gerenciar Temas</a>
+                    <ul>
+                        <li><a href="temas_cadastro_edicao.html">Cadastrar Tema</a></li>
+                    </ul>
+                </li>
+                <li><a href="usuarios_lista.html">Gerenciar Usuários</a>
+                    <ul>
+                        <li><a href="usuarios_cadastro_edicao.html">Cadastrar Usuário</a></li>
+                    </ul>
+                </li>
+                </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Cadastro/Edição de Usuário</h2>
+        <form action="#" method="POST">
+            <label for="nome_completo">Nome Completo:</label><br>
+            <input type="text" id="nome_completo" name="nome_completo" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="senha">Senha:</label><br>
+            <input type="password" id="senha" name="senha" required><br><br>
+
+            <label for="confirmar_senha">Confirmar Senha:</label><br>
+            <input type="password" id="confirmar_senha" name="confirmar_senha" required><br><br>
+
+            <label for="nivel_acesso">Nível de Acesso:</label><br>
+            <select id="nivel_acesso" name="nivel_acesso">
+                <option value="admin">Administrador</option>
+                <option value="editor">Editor</option>
+                <option value="leitor">Leitor</option>
+            </select><br><br>
+
+            <button type="submit">Salvar Usuário</button>
+            <button type="reset">Limpar</button>
+            <a href="usuarios_lista.html">Voltar para a Lista</a>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 José Gilmar Oliveira de Sá</p>
+        <p><a href="../publico/sobre.html">Sobre o Autor</a></p>
+    </footer>
+</body>
+</html>

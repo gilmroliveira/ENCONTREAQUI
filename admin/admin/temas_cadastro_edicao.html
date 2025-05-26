@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Cadastro/encontreaqui</title>
+    </head>
+<body>
+    <header>
+        <h1>Área de Administração</h1>
+        <nav>
+            <ul>
+                <li><a href="../publico/index.html">Página Inicial encontreaqui</a></li>
+                <li><a href="login.html">Login (Admin)</a></li>
+                <li><a href="temas_lista.html">Gerenciar Temas</a>
+                    <ul>
+                        <li><a href="temas_cadastro_edicao.html">Cadastrar Tema</a></li>
+                    </ul>
+                </li>
+                <li><a href="usuarios_lista.html">Gerenciar Usuários</a>
+                    <ul>
+                        <li><a href="usuarios_cadastro_edicao.html">Cadastrar Usuário</a></li>
+                    </ul>
+                </li>
+                </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Cadastro/Edição de Tema</h2>
+        <form action="#" method="POST">
+            <label for="nome_tema">encontreaqui:</label><br>
+            <input type="text" id="nome_tema" name="nome_tema" required><br><br>
+
+            <label for="descricao_tema">Seus dados:</label><br>
+            <textarea id="descricao_tema" name="descricao_tema" rows="5"></textarea><br><br>
+
+            <button type="submit">Salvar</button>
+            <button type="reset">Limpar</button>
+            <a href="temas_lista.html">Voltar para a Lista</a>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 José Gilmar Oliveira de Sá</p>
+        <p><a href="./encontreaqui/sobre.html">Sobre o Autor</a></p>
+    </footer>
+</body>
+</html>

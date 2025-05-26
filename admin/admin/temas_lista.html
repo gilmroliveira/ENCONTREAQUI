@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Lista de Temas</title>
+    </head>
+<body>
+    <header>
+        <h1>Área de Administração</h1>
+        <nav>
+            <ul>
+                <li><a href="../publico/index.html">Página Inicial encontreaqui</a></li>
+                <li><a href="login.html">Login (Admin)</a></li>
+                <li><a href="temas_lista.html">Gerenciar Temas</a>
+                    <ul>
+                        <li><a href="temas_cadastro_edicao.html">Cadastrar Tema</a></li>
+                    </ul>
+                </li>
+                <li><a href="usuarios_lista.html">Gerenciar Usuários</a>
+                    <ul>
+                        <li><a href="usuarios_cadastro_edicao.html">Cadastrar Usuário</a></li>
+                    </ul>
+                </li>
+                </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Lista de Temas</h2>
+        <p><a href="temas_cadastro_edicao.html">Novo Tema</a></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do Tema</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Tecnologia</td>
+                    <td>Artigos sobre as últimas inovações tecnológicas.</td>
+                    <td>
+                        <a href="temas_cadastro_edicao.html?id=1">Editar</a>
+                        <form action="#" method="POST" style="display:inline;">
+                            <input type="hidden" name="acao" value="apagar">
+                            <input type="hidden" name="id" value="1">
+                            <button type="submit">Apagar</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 José Gilmar Oliveira de Sá</p>
+        <p><a href="../publico/sobre.html">Sobre o Autor</a></p>
+    </footer>
+</body>
+</html>

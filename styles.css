@@ -46,6 +46,12 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
+h2 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -60,6 +66,10 @@ h1 {
 }
 
 /* Menu de navegação */
+.menu-checkbox {
+    display: none;
+}
+
 nav {
     display: none; /* Escondido por padrão no mobile */
     position: absolute;
@@ -71,12 +81,6 @@ nav {
     padding: 1rem;
 }
 
-/* Checkbox oculto para toggle */
-.menu-checkbox {
-    display: none;
-}
-
-/* Botões de toggle */
 label.menu-toggle {
     display: block;
     cursor: pointer;
@@ -89,10 +93,9 @@ label.menu-toggle {
 }
 
 .close-menu {
-    display: none; /* Escondido por padrão */
+    display: none;
 }
 
-/* Mostrar menu e botão de fechar quando checkbox está marcado */
 .menu-checkbox:checked ~ nav {
     display: block;
 }
@@ -105,7 +108,6 @@ label.menu-toggle {
     display: block;
 }
 
-/* Estilizar lista de navegação */
 nav ul {
     list-style: none;
 }
@@ -126,6 +128,12 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* Submenu */
+nav ul ul {
+    margin-left: 1rem;
+}
+
+/* Conteúdo principal */
 main {
     margin-bottom: 2rem;
     padding: 1rem;
@@ -142,6 +150,81 @@ main img {
     margin: 1rem 0;
 }
 
+/* Formulários */
+form {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+button:hover {
+    background-color: #218838; /* Escurece o verde */
+}
+
+button[type="reset"] {
+    background-color: var(--secondary-color);
+}
+
+button[type="reset"]:hover {
+    background-color: #5a6268;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    max-width: 600px;
+    margin: 1rem auto;
+    border-collapse: collapse;
+    border: 1px solid var(--secondary-color);
+}
+
+th, td {
+    padding: 0.75rem;
+    border: 1px solid var(--secondary-color);
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+td form {
+    display: inline;
+}
+
+/* Rodapé */
 footer {
     padding: 1rem;
     background-color: var(--secondary-color);
@@ -157,40 +240,6 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-/* Formulário de login */
-form {
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 1rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--secondary-color);
-    border-radius: 4px;
-}
-
-button {
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: darken(var(--accent-color), 10%);
 }
 
 /* Estilos para desktop */
@@ -222,6 +271,18 @@ button:hover {
         margin-bottom: 0;
     }
 
+    nav ul ul {
+        display: none; /* Submenu escondido por padrão */
+        position: absolute;
+        background-color: var(--background-color);
+        border: 1px solid var(--secondary-color);
+        padding: 0.5rem;
+    }
+
+    nav li:hover > ul {
+        display: block; /* Mostra submenu no hover */
+    }
+
     .menu-toggle {
         display: none; /* Esconde botões de toggle no desktop */
     }
@@ -229,5 +290,13 @@ button:hover {
     main {
         max-width: 800px;
         margin: 0 auto;
+    }
+
+    form {
+        max-width: 500px;
+    }
+
+    table {
+        max-width: 800px;
     }
 }

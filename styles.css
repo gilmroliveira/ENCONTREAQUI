@@ -12,6 +12,10 @@
 width: 200px;
 height: auto;
 }
+@media (max-width: 768px) {
+  .container{
+    width: 100%; /* O conteúdo ocupa toda a largura da tela */
+  }
 /* CSS interno */
 <style>
   p {

@@ -1,0 +1,7 @@
+   .container {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       /* Ajuste a altura da container para que a imagem fique centralizada verticalmente */
+       height: 100vh; /* Ou outro valor que corresponda à altura do conteúdo */
+   }

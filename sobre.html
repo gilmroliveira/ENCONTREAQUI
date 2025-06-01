@@ -4,29 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre José Gilmar - encontreaqui</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
         <h1>encontreaqui</h1>
-        <img src="1.png" width="200" height="150" alt="desenvolvedor">
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Alternar menu">
+        <label for="menu-toggle" class="menu-toggle open-menu">
+            <i class="fas fa-bars"></i>
+        </label>
+        <nav>
+            <label for="menu-toggle" class="menu-toggle close-menu">
+                <i class="fas fa-times"></i>
+            </label>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="https://www.magazinevoce.com.br/magazinecomlay/">Compre Aqui Diversos</a></li>
+                <li><a href="detalhes.html">Detalhes</a></li>
+                <li><a href="sobre.html">Sobre o Autor</a></li>
+                <li><a href="login.html">Faça seu Cadastro</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <img class="myimg" src="1.png" alt="Desenvolvedor">
+        </div>
     </header>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Página Inicial</a></li>
-            <li><a href="https://www.magazinevoce.com.br/magazinecomlay/">compre aqui diversos</a></li>
-            <li><a href="detalhes.html">Detalhes</a></li>
-            <li><a href="sobre.html">Sobre o Autor</a></li>
-            <li><a href="login.html">faça seu cadastro</a></li>
-        </ul>
-    </nav>
 
     <main>
         <section id="sobre-autor">
             <h2>Sobre José Gilmar Oliveira de Sá</h2>
-            <p>Olá! Meu nome é José Gilmar Oliveira de Sá, sou estudante do IFCE.</br> 
-                Este é um projeto para a disciplina,informática para Internet 
-                onde estou desenvolvendo a área pública de um site.</p>
+            <p>Olá! Meu nome é José Gilmar Oliveira de Sá, sou estudante do IFCE.<br>
+            Este é um projeto para a disciplina Informática para Internet, onde estou desenvolvendo a área pública de um site.</p>
             <p>Você pode me encontrar nas seguintes plataformas:</p>
             <ul>
                 <li><strong>Instagram:</strong> <a href="https://www.instagram.com/gilmroliveira/" target="_blank">@gilmroliveira</a></li>
@@ -37,7 +46,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 José Gilmar Oliveira de Sá</p>
+        <p>© 2025 José Gilmar Oliveira de Sá</p>
         <p><a href="detalhes.html">Detalhes</a></p>
     </footer>
 </body>

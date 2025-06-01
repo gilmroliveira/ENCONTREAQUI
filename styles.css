@@ -1,33 +1,233 @@
-   .container {
-       width: 200px;
-       height: 150px;
-       
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       /* Ajuste a altura da container para que a imagem fique centralizada verticalmente */
-       height: 100vh; /* Ou outro valor que corresponda à altura do conteúdo */
-   }
-  .myimg{
-width: 200px;
-height: auto;
+/* Reset de margens e espaçamentos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-@media (max-width: 768px) {
-  .container{
-    width: 100%; /* O conteúdo ocupa toda a largura da tela */
-  }
-/* CSS interno */
-<style>
-  p {
-    color: blue; /* Define a cor do texto como azul */
-    background-color: #f0f0f0; /* Define a cor de fundo como cinza claro */
-  }
 
-  h1 {
-    color: rgb(255, 0, 0); /* Define a cor do texto como vermelho (RGB) */
-  }
+/* Variáveis para cores e tipografia */
+:root {
+    --primary-color: #007bff; /* Azul principal */
+    --secondary-color: #6c757d; /* Cinza secundário */
+    --accent-color: #28a745; /* Verde para botões */
+    --background-color: #f8f9fa; /* Fundo claro */
+    --text-color: #333333; /* Texto escuro */
+    --font-primary: 'Arial', sans-serif; /* Fonte principal */
+    --font-heading: 'Helvetica', sans-serif; /* Fonte para títulos */
+    --font-size-base: 16px; /* Tamanho base para mobile */
+    --font-size-heading: 1.5rem; /* Tamanho de títulos */
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+}
 
-  body {
-    background-color: hsl(200, 100%, 50%); /* Define a cor de fundo (HSL) */
-  }
-</style>
+/* Estilos mobile-first */
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 1rem;
+}
+
+header {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-heading);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 0.5rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+}
+
+.myimg {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+/* Menu de navegação */
+nav {
+    display: none; /* Escondido por padrão no mobile */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-color);
+    border: 1px solid var(--secondary-color);
+    padding: 1rem;
+}
+
+/* Checkbox oculto para toggle */
+.menu-checkbox {
+    display: none;
+}
+
+/* Botões de toggle */
+label.menu-toggle {
+    display: block;
+    cursor: pointer;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    padding: 0.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    text-align: center;
+}
+
+.close-menu {
+    display: none; /* Escondido por padrão */
+}
+
+/* Mostrar menu e botão de fechar quando checkbox está marcado */
+.menu-checkbox:checked ~ nav {
+    display: block;
+}
+
+.menu-checkbox:checked ~ .open-menu {
+    display: none;
+}
+
+.menu-checkbox:checked ~ nav .close-menu {
+    display: block;
+}
+
+/* Estilizar lista de navegação */
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 0.5rem;
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    padding: 0.5rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+main p, main li {
+    margin-bottom: 1rem;
+}
+
+main img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 1rem 0;
+}
+
+footer {
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    border-top: 1px solid var(--primary-color);
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Formulário de login */
+form {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darken(var(--accent-color), 10%);
+}
+
+/* Estilos para desktop */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+
+    header {
+        padding: 2rem;
+    }
+
+    .container {
+        max-width: 400px;
+    }
+
+    nav {
+        display: block; /* Sempre visível no desktop */
+        position: static;
+        border: none;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 1rem;
+    }
+
+    nav li {
+        margin-bottom: 0;
+    }
+
+    .menu-toggle {
+        display: none; /* Esconde botões de toggle no desktop */
+    }
+
+    main {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}

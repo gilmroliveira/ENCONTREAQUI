@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Cadastro/encontreaqui</title>
-    </head>
+    <title>Admin - Cadastro/Edição de Tema</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 <body>
     <header>
         <h1>Área de Administração</h1>
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Alternar menu">
+        <label for="menu-toggle" class="menu-toggle open-menu">
+            <i class="fas fa-bars"></i>
+        </label>
         <nav>
+            <label for="menu-toggle" class="menu-toggle close-menu">
+                <i class="fas fa-times"></i>
+            </label>
             <ul>
-                <li><a href="index.html">Página Inicial encontreaqui</a></li>
+                <li><a href="../index.html">Página Inicial encontreaqui</a></li>
                 <li><a href="login.html">Login (Admin)</a></li>
                 <li><a href="temas_lista.html">Lista</a>
                     <ul>
-                        <li><a href="temas_cadastro_edicao.html">Cadastrar usuários</a></li>
+                        <li><a href="temas_cadastro_edicao.html">Cadastrar Usuários</a></li>
                     </ul>
                 </li>
                 <li><a href="usuarios_lista.html">Gerenciar Usuários</a>
@@ -22,19 +31,17 @@
                         <li><a href="usuarios_cadastro_edicao.html">Cadastrar Usuário</a></li>
                     </ul>
                 </li>
-                </ul>
+            </ul>
         </nav>
     </header>
 
     <main>
         <h2>Cadastro/Edição de Tema</h2>
         <form action="#" method="POST">
-            <label for="nome_tema">deixe seu nome :</label><br>
+            <label for="nome_tema">Deixe seu nome:</label><br>
             <input type="text" id="nome_tema" name="nome_tema" required><br><br>
-
             <label for="descricao_tema">Seus dados:</label><br>
             <textarea id="descricao_tema" name="descricao_tema" rows="5"></textarea><br><br>
-
             <button type="submit">Salvar</button>
             <button type="reset">Limpar</button>
             <a href="temas_lista.html">Voltar para a Lista</a>
@@ -42,8 +49,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 José Gilmar Oliveira de Sá</p>
-        <p><a href="sobre.html">Sobre o Autor</a></p>
+        <p>© 2025 José Gilmar Oliveira de Sá</p>
+        <p><a href="../sobre.html">Sobre o Autor</a></p>
     </footer>
 </body>
 </html>

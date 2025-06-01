@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Lista de Temas</title>
-    </head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 <body>
     <header>
         <h1>Área de Administração</h1>
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Alternar menu">
+        <label for="menu-toggle" class="menu-toggle open-menu">
+            <i class="fas fa-bars"></i>
+        </label>
         <nav>
+            <label for="menu-toggle" class="menu-toggle close-menu">
+                <i class="fas fa-times"></i>
+            </label>
             <ul>
-                <li><a href="index.html">Página Inicial encontreaqui</a></li>
+                <li><a href="../index.html">Página Inicial encontreaqui</a></li>
                 <li><a href="login.html">Login (Admin)</a></li>
                 <li><a href="temas_lista.html">Gerenciar Temas</a>
                     <ul>
-                        <li><a href="temas_cadastro_edicao.html">Cadastrar cliente</a></li>
+                        <li><a href="temas_cadastro_edicao.html">Cadastrar Cliente</a></li>
                     </ul>
                 </li>
                 <li><a href="usuarios_lista.html">Gerenciar Usuários</a>
@@ -22,20 +31,20 @@
                         <li><a href="usuarios_cadastro_edicao.html">Cadastrar Usuário</a></li>
                     </ul>
                 </li>
-                </ul>
+            </ul>
         </nav>
     </header>
 
     <main>
-        <h2>Lista de usuario</h2>
-        <p><a href="temas_cadastro_edicao.html">informaçao</a></p>
+        <h2>Lista de Usuários</h2>
+        <p><a href="temas_cadastro_edicao.html">Informação</a></p>
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>cadastro de lugares</th>
-                    <th>Descrição detalhada</th>
-                    <th>o que voce mais gostou</th>
+                    <th>Cadastro de Lugares</th>
+                    <th>Descrição Detalhada</th>
+                    <th>O que você mais gostou</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,20 +54,20 @@
                     <td>Artigos sobre as últimas inovações tecnológicas.</td>
                     <td>
                         <a href="temas_cadastro_edicao.html?id=1">Editar</a>
-                        <form action="#" method="POST" style="display:inline;">
+                        <form action="#" method="POST">
                             <input type="hidden" name="acao" value="apagar">
                             <input type="hidden" name="id" value="1">
                             <button type="submit">Apagar</button>
                         </form>
                     </td>
                 </tr>
-                </tbody>
+            </tbody>
         </table>
     </main>
 
     <footer>
-        <p>&copy; 2025 José Gilmar Oliveira de Sá</p>
-        <p><a href="../publico/sobre.html">Sobre o Autor</a></p>
+        <p>© 2025 José Gilmar Oliveira de Sá</p>
+        <p><a href="../sobre.html">Sobre o Autor</a></p>
     </footer>
 </body>
 </html>

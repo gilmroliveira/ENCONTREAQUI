@@ -2,82 +2,77 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>encontreaqui - Recursos para Devs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <title>Dev_startaps - Seu Portal Tech</title>
     
-    <!-- Otimização para mobile -->
+    <!-- Meta tags essenciais -->
+    <meta name="description" content="Portal com recursos para desenvolvedores">
     <meta name="theme-color" content="#0a0a1a">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Pré-carregamento crítico -->
-    <link rel="preload" href="img/logo-futurista.svg" as="image">
+    <!-- Pré-carregamentos -->
     <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
     
-    <!-- Favicon -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Favicon multi-formato -->
+    <link rel="icon" href="img/favicon.ico" sizes="any">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <!-- Fontes com fallback -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-        body { font-family: 'Roboto', sans-serif; }
+        @font-face {
+            font-family: 'Orbitron';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: local(''),
+                 url('fonts/orbitron-v19-latin-regular.woff2') format('woff2'),
+                 url('fonts/orbitron-v19-latin-regular.woff') format('woff');
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+                         Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+        }
     </style>
 </head>
 <body>
-    <!-- Efeito de scanlines (simplificado) -->
-    <div class="scanlines"></div>
-    
-    <header class="futurist-header">
+    <!-- Estrutura semântica melhorada -->
+    <header class="site-header">
         <div class="header-container">
-            <a href="index.html" class="logo-link">
-                <img src="img/logo-futurista.svg" alt="encontreaqui" class="futurist-logo" loading="lazy">
+            <a href="index.html" class="logo-link" aria-label="Ir para página inicial">
+                <img src="img/logo.svg" alt="Logo encontreaqui" width="200" height="60" 
+                     class="site-logo" loading="eager" decoding="async">
             </a>
             
-            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-            <label for="menu-toggle" class="menu-toggle open-menu">
-                <i class="fas fa-bars"></i>
-            </label>
+            <!-- Menu acessível -->
+            <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Menu">
+                <span class="menu-icon" aria-hidden="true"></span>
+            </button>
             
-            <nav id="main-nav">
-                <label for="menu-toggle" class="menu-toggle close-menu">
-                    <i class="fas fa-times"></i>
-                </label>
-                <ul>
-                    <li><a href="index.html" class="active">Página Inicial</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="admin/login.html" class="highlight">Cadastro</a></li>
+            <nav id="main-nav" aria-label="Navegação principal">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Início</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                    <li><a href="cursos.html" class="nav-link">Cursos</a></li>
+                    <li><a href="contato.html" class="nav-link highlight">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <!-- Seu conteúdo existente aqui -->
+    <main class="main-content">
+        <!-- Conteúdo principal aqui -->
     </main>
 
-    <footer>
-        <!-- Seu rodapé existente aqui -->
+    <footer class="site-footer">
+        <!-- Rodapé aqui -->
     </footer>
 
-    <!-- Script otimizado com defer -->
+    <!-- Scripts otimizados -->
     <script src="js/script.js" defer></script>
-    
-    <!-- Loader de fontes sem bloquear renderização -->
-    <script>
-        WebFontConfig = {
-            google: { families: ['Orbitron:400,700'] }
-        };
-        (function() {
-            var wf = document.createElement('script');
-            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
-            wf.type = 'text/javascript';
-            wf.async = 'true';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(wf, s);
-        })();
-    </script>
 </body>
 </html>

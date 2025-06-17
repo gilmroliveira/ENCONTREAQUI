@@ -3,54 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>encontreaqui - Recursos para Devs</title>
+    <title>encontreaqui - Recursos para Devs e Oportunidades de Monetização</title>
+    <meta name="description" content="Portal com ferramentas de IA gratuitas, cursos de programação e oportunidades de monetização para desenvolvedores">
+    <meta name="keywords" content="IA gratuita, programação, cursos de desenvolvimento, monetização para devs">
+    <meta name="author" content="José Gilmar Oliveira de Sá">
     
-    <!-- Pré-carregamento de recursos críticos -->
-    <link rel="preload" href="img/logo-futurista.svg" as="image">
-    <link rel="preload" href="css/styles.css" as="style">
-    <link rel="preload" href="js/script.js" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" as="style">
+    <!-- Favicon Futurista -->
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="alternate icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     
-    <!-- Favicon -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/svg+xml" href="img/logo-futurista.svg">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Pré-conexão para CDNs -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Meta tags de performance -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#0a0a1a">
 </head>
 <body>
-    <!-- Efeito de scanlines futurista -->
-    <div class="scanlines"></div>
-    
-    <!-- Efeito de partículas no background -->
-    <div id="particles-js"></div>
-    
-    <header class="futurist-header">
-        <!-- Restante do header... -->
+    <!-- Loader Futurista -->
+    <div class="futurist-loader">
+        <div class="loader-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <path d="M20,20 L80,20 L80,30 L30,30 L30,50 L70,50 L70,60 L30,60 L30,80 L80,80 L80,90 L20,90 Z" 
+                      fill="url(#gradient)" stroke="#00F5FF" stroke-width="2"/>
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00F5FF"/>
+                        <stop offset="100%" stop-color="#BC13FE"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <!-- Logo Futurista SVG -->
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="futurist-logo">
+                        <path d="M20,20 L80,20 L80,30 L30,30 L30,50 L70,50 L70,60 L30,60 L30,80 L80,80 L80,90 L20,90 Z" 
+                              fill="url(#gradient)" stroke="#00F5FF" stroke-width="2"/>
+                        <circle cx="85" cy="15" r="5" fill="#BC13FE" filter="url(#glow)"/>
+                        <circle cx="85" cy="85" r="5" fill="#00F5FF" filter="url(#glow)"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00F5FF"/>
+                                <stop offset="100%" stop-color="#BC13FE"/>
+                            </linearGradient>
+                            <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+                                <feGaussianBlur stdDeviation="3" result="blur"/>
+                                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                            </filter>
+                        </defs>
+                    </svg>
+                </div>
+                <h1 class="logo-text">encontreaqui</h1>
+            </div>
+            
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Alternar menu">
+            <label for="menu-toggle" class="menu-toggle open-menu">
+                <i class="fas fa-bars"></i>
+            </label>
+            
+            <nav id="main-nav">
+                <label for="menu-toggle" class="menu-toggle close-menu">
+                    <i class="fas fa-times"></i>
+                </label>
+                <ul>
+                    <li><a href="index.html" class="active">Página Inicial</a></li>
+                    <li><a href="index2.html">Layout Alternativo</a></li>
+                    <li><a href="detalhes.html">Recursos</a></li>
+                    <li><a href="sobre.html">Sobre o Autor</a></li>
+                    <li><a href="admin/login.html" class="highlight">Faça seu Cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
+    <!-- Resto do conteúdo permanece igual -->
     <main>
-        <!-- Conteúdo principal -->
+        [...]
     </main>
 
     <footer>
-        <!-- Rodapé -->
+        [...]
     </footer>
 
-    <!-- Scripts otimizados -->
-    <script src="js/particles.min.js" defer></script>
-    <script src="js/script.js" defer></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

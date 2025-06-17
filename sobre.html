@@ -1,36 +1,44 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    [... mesmo head do index.html ...]
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - encontreaqui</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <!-- Loader Futurista (mesmo do index.html) -->
-    <div class="futurist-loader">
-        [...]
-    </div>
-
-    <header>
+    <header class="futurist-header">
         <div class="header-container">
-            <div class="logo-container">
-                <!-- Mesma logo futurista do index.html -->
-                <div class="logo-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="futurist-logo">
-                        [... mesmo SVG da logo ...]
-                    </svg>
-                </div>
-                <h1 class="logo-text">encontreaqui</h1>
-            </div>
+            <a href="index.html" class="logo-link">
+                <img src="img/logo-futurista.svg" alt="encontreaqui" class="futurist-logo">
+            </a>
             
-            [... mesmo menu do index.html ...]
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="menu-toggle open-menu">
+                <i class="fas fa-bars"></i>
+            </label>
+            
+            <nav id="main-nav">
+                <label for="menu-toggle" class="menu-toggle close-menu">
+                    <i class="fas fa-times"></i>
+                </label>
+                <ul>
+                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="sobre.html" class="active">Sobre</a></li>
+                    <li><a href="admin/login.html" class="highlight">Cadastro</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <main>
-        [... conteúdo existente da página sobre ...]
+        <!-- Conteúdo da página sobre -->
     </main>
 
     <footer>
-        [... mesmo footer do index.html ...]
+        <!-- Rodapé -->
     </footer>
 
     <script src="js/script.js"></script>

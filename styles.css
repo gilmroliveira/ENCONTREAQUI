@@ -1,153 +1,79 @@
-/* Variáveis CSS */
-:root {
-    --primary-color: #2c3e50;
-    --accent-color: #3498db;
-    --text-light: #ffffff;
-    --text-dark: #333333;
-    --bg-light: #f8f9fa;
-    --bg-dark: #0a0a1a;
-    --transition: all 0.3s ease;
-}
-
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--bg-light);
-}
-
-/* Header */
-.site-header {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    padding: 1rem 0;
-    position: sticky;
+/* Efeito de scanlines futurista */
+.scanlines {
+    position: fixed;
     top: 0;
-    z-index: 100;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-/* Logo - Ajuste conforme sua imagem */
-.logo-link {
-    display: inline-block;
-}
-
-.site-logo {
-    height: 40px; /* Ajuste conforme necessário */
-    width: auto;
-    transition: var(--transition);
-}
-
-/* Menu */
-.menu-toggle {
-    background: none;
-    border: none;
-    color: var(--text-light);
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none;
-}
-
-.main-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-.main-nav a {
-    color: var(--text-light);
-    text-decoration: none;
-    transition: var(--transition);
-    padding: 0.5rem 0;
-    position: relative;
-}
-
-.main-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
     left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-color);
-    transition: var(--transition);
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+    animation: scanline-anim 120s linear infinite;
 }
 
-.main-nav a:hover::after,
-.main-nav a.active::after {
+@keyframes scanline-anim {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Efeito de partículas no background */
+#particles-js {
+    position: fixed;
     width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* Efeito de glitch ocasional na logo */
+@keyframes glitch-effect {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+}
+
+.logo-link:hover .futurist-logo {
+    animation: glitch-effect 0.5s linear;
+}
+
+/* Efeito de pulsação para itens importantes */
+@keyframes pulse-effect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 .highlight {
-    background-color: var(--accent-color);
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
+    animation: pulse-effect 3s infinite;
 }
 
-/* Conteúdo principal */
-.main-content {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-/* Rodapé */
-.site-footer {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: auto;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    
-    .main-nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: var(--bg-dark);
-        padding: 2rem;
-        transition: var(--transition);
-    }
-    
-    .main-nav.active {
-        right: 0;
-    }
-    
-    .main-nav ul {
-        flex-direction: column;
-        margin-top: 3rem;
-    }
-    
-    .site-logo {
-        height: 35px;
+/* Otimizações de performance */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
     }
 }
 
-@media (max-width: 480px) {
-    .site-logo {
-        height: 30px;
-    }
+/* Critical CSS - Coloque os estilos acima da dobra aqui */
+.futurist-header, .logo-link, .futurist-logo {
+    will-change: transform, filter;
+}
+
+/* Font Face para performance */
+@font-face {
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Orbitron Regular'), local('Orbitron-Regular'),
+         url('fonts/orbitron-v9-latin-regular.woff2') format('woff2');
 }

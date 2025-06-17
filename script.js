@@ -1,80 +1,80 @@
-// Configuração das partículas no background
-document.addEventListener('DOMContentLoaded', function() {
-    // Carrega particles.js apenas se não for mobile
-    if (window.innerWidth > 768 && typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 40, density: { enable: true, value_area: 800 } },
-                color: { value: ["#00F5FF", "#BC13FE", "#FF00F5"] },
-                shape: { type: "circle" },
-                opacity: { random: true, value: 0.5 },
-                size: { random: true, value: 3 },
-                line_linked: { enable: false },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out"
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" }
-                }
+// Verifica se é mobile
+const isMobile = () => window.innerWidth <= 768;
+
+// Função otimizada para cálculos pesados
+function optimizedCalculation() {
+    return new Promise((resolve) => {
+        let sum = 0;
+        const total = 100000;
+        const chunkSize = 10000;
+        
+        function processChunk(start, end) {
+            for (let i = start; i < end; i++) {
+                sum += Math.sqrt(i);
             }
+            
+            if (end < total) {
+                setTimeout(() => processChunk(end, end + chunkSize), 0);
+            } else {
+                console.log('Calculation completed:', sum);
+                resolve(sum);
+            }
+        }
+        
+        processChunk(0, chunkSize);
+    });
+}
+
+// Menu mobile
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('change', function() {
+            document.body.style.overflow = this.checked ? 'hidden' : '';
         });
     }
-
-    // Efeito de glitch aleatório na logo
-    const logo = document.querySelector('.futurist-logo');
-    if (logo) {
-        setInterval(() => {
-            if (Math.random() > 0.95) {
-                logo.style.animation = 'none';
-                void logo.offsetWidth; // Trigger reflow
-                logo.style.animation = 'glitch-effect 0.5s linear';
-            }
-        }, 10000);
+    
+    // Carrega efeitos apenas se não for mobile
+    if (!isMobile()) {
+        // Efeito hover na logo
+        const logo = document.querySelector('.futurist-logo');
+        if (logo) {
+            logo.addEventListener('mouseenter', () => {
+                logo.style.filter = 'drop-shadow(0 0 8px var(--neon-blue))';
+            });
+            
+            logo.addEventListener('mouseleave', () => {
+                logo.style.filter = 'none';
+            });
+        }
+        
+        // Cálculo otimizado
+        if (document.querySelector('.calculations-section')) {
+            optimizedCalculation().then(result => {
+                console.log('Resultado pronto:', result);
+            });
+        }
     }
-
-    // Intersection Observer para carregamento lazy
-    const lazyLoad = (element) => {
+    
+    // Lazy loading para imagens
+    const lazyLoad = () => {
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        
         if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Carrega elementos quando visíveis
-                        if (entry.target.dataset.src) {
-                            entry.target.src = entry.target.dataset.src;
-                        }
-                        if (entry.target.dataset.bg) {
-                            entry.target.style.backgroundImage = `url(${entry.target.dataset.bg})`;
-                        }
-                        observer.unobserve(entry.target);
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        observer.unobserve(img);
                     }
                 });
-            }, { rootMargin: '100px' });
-
-            observer.observe(element);
+            });
+            
+            lazyImages.forEach(img => observer.observe(img));
         }
     };
-
-    // Aplica lazy loading a imagens e backgrounds
-    document.querySelectorAll('[data-src], [data-bg]').forEach(lazyLoad);
+    
+    lazyLoad();
 });
-
-// Web Worker para cálculos pesados
-if (window.Worker) {
-    const perfWorker = new Worker('js/perf-worker.js');
-    
-    // Envia dados para o worker se necessário
-    perfWorker.postMessage({ type: 'init', data: {} });
-    
-    perfWorker.onmessage = function(e) {
-        // Processa mensagens do worker
-    };
-}

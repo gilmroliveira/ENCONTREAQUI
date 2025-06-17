@@ -1,20 +1,36 @@
-/* Variáveis CSS para cores e fontes */
+/* Variáveis CSS */
 :root {
     /* Cores */
-    --primary-color: #2c3e50; /* Azul escuro */
-    --secondary-color: #3498db; /* Azul claro */
-    --text-color: #333333; /* Cor do texto */
-    --background-color: #f4f4f4; /* Fundo claro */
-    --footer-bg-color: #2c3e50; /* Fundo do rodapé */
-    --link-color: #3498db; /* Cor dos links */
-    --link-hover-color: #2980b9; /* Cor dos links ao passar o mouse */
-
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --text-color: #333;
+    --text-light: #7f8c8d;
+    --white: #fff;
+    
     /* Fontes */
-    --font-primary: 'Arial', sans-serif;
-    --font-heading: 'Helvetica', sans-serif;
+    --font-primary: 'Roboto', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+    
+    /* Espaçamentos */
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    
+    /* Bordas */
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
 }
 
-/* Estilos gerais */
+/* Reset e Estilos Base */
 * {
     margin: 0;
     padding: 0;
@@ -23,127 +39,283 @@
 
 body {
     font-family: var(--font-primary);
-    background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    background-color: var(--light-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.section-padding {
+    padding: var(--space-xl) 0;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Header */
 header {
     background-color: var(--primary-color);
-    color: white;
-    padding: 1rem;
-    text-align: center;
+    color: var(--white);
+    padding: var(--space-md) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-md);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
 }
 
 header h1 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    color: var(--white);
 }
 
-/* Menu de navegação horizontal */
-nav {
-    background-color: var(--secondary-color);
-    padding: 1rem;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-nav ul li {
-    font-size: 1.1rem;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-family: var(--font-primary);
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: var(--link-hover-color);
-}
-
-/* Esconder o checkbox e os ícones de toggle em telas grandes */
-.menu-checkbox, .menu-toggle {
+/* Menu de Navegação */
+.menu-checkbox {
     display: none;
 }
 
-/* Container com a imagem */
-.container {
-    margin: 1rem auto;
-    max-width: 1200px;
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--white);
 }
 
-.myimg {
-    max-width: 100%;
-    height: auto;
-    display: block;
+nav ul {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+nav ul li a {
+    color: var(--white);
+    font-weight: 500;
+    padding: var(--space-sm) 0;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a.active {
+    color: var(--accent-color);
+}
+
+.highlight {
+    background-color: var(--accent-color);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius);
+}
+
+.highlight:hover {
+    background-color: #c0392b;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: var(--space-xl) 0;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
     margin: 0 auto;
 }
 
-/* Main - Exibir conteúdo em 2 colunas */
-main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+.hero h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
 }
 
-main p {
-    font-size: 1.1rem;
-    text-align: justify;
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-lg);
+    opacity: 0.9;
 }
 
-/* Footer */
-footer {
-    background-color: var(--footer-bg-color);
-    color: white;
+.cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+}
+
+/* Seções */
+.section-title {
     text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
+    margin-bottom: var(--space-xl);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--primary-color);
+    position: relative;
 }
 
-footer p {
-    font-size: 0.9rem;
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: var(--space-sm) auto 0;
 }
 
-footer a {
-    color: var(--link-color);
-    text-decoration: none;
+/* Cards de IA */
+.ai-tools {
+    background-color: var(--white);
 }
 
-footer a:hover {
-    color: var(--link-hover-color);
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
 }
 
-/* Media query para dispositivos móveis */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .menu-checkbox, .menu-toggle {
-        display: block;
-    }
-
-    nav {
-        display: none;
-    }
-
-    .menu-checkbox:checked ~ nav {
-        display: block;
-    }
-
-    main {
-        grid-template-columns: 1fr;
-    }
+.ai-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--secondary-color);
 }
+
+.ai-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.ai-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--space-md);
+}
+
+.ai-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: var(--space-sm);
+    color: var(--primary-color);
+}
+
+/* Cursos */
+.programming-courses {
+    background-color: #f9f9f9;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.course-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.course-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.course-card h3 {
+    font-size: 1.3rem;
+    margin: var(--space-md) var(--space-md) var(--space-sm);
+    color: var

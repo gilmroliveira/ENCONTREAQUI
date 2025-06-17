@@ -3,52 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev-startaps - Seu Portal Tech</title>
+    <title>encontreaqui - Recursos para Devs</title>
     
-    <!-- Meta tags essenciais -->
-    <meta name="description" content="Portal com recursos para desenvolvedores">
+    <!-- Pré-carregamento de recursos críticos -->
+    <link rel="preload" href="img/logo-futurista.svg" as="image">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" as="style">
     
     <!-- Favicon -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="img/logo-futurista.svg">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Fontes otimizadas -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Pré-conexão para CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Meta tags de performance -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#0a0a1a">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-container">
-            <!-- Logo - Substitua apenas o arquivo SVG -->
-            <a href="index.html" class="logo-link">
-                <img src="img/logo.svg" alt="encontreaqui" class="site-logo">
-            </a>
-            
-            <!-- Menu mobile acessível -->
-            <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
-                <span class="menu-icon"></span>
-            </button>
-            
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html" class="active">Início</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="admin/login.html" class="highlight">Cadastro</a></li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Efeito de scanlines futurista -->
+    <div class="scanlines"></div>
+    
+    <!-- Efeito de partículas no background -->
+    <div id="particles-js"></div>
+    
+    <header class="futurist-header">
+        <!-- Restante do header... -->
     </header>
 
-    <main class="main-content">
-        <!-- Seu conteúdo aqui -->
+    <main>
+        <!-- Conteúdo principal -->
     </main>
 
-    <footer class="site-footer">
-        <p>&copy; 2025 encontreaqui. Todos os direitos reservados.</p>
+    <footer>
+        <!-- Rodapé -->
     </footer>
 
+    <!-- Scripts otimizados -->
+    <script src="js/particles.min.js" defer></script>
     <script src="js/script.js" defer></script>
 </body>
 </html>

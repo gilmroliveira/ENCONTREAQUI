@@ -1,80 +1,95 @@
-// Configuração das partículas no background
+// Loader
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        const loader = document.querySelector('.futurist-loader');
+        if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 500);
+        }
+    }, 1500);
+});
+
+// Efeitos para a logo futurista
 document.addEventListener('DOMContentLoaded', function() {
-    // Carrega particles.js apenas se não for mobile
-    if (window.innerWidth > 768 && typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 40, density: { enable: true, value_area: 800 } },
-                color: { value: ["#00F5FF", "#BC13FE", "#FF00F5"] },
-                shape: { type: "circle" },
-                opacity: { random: true, value: 0.5 },
-                size: { random: true, value: 3 },
-                line_linked: { enable: false },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out"
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" }
+    const logoContainer = document.querySelector('.logo-container');
+    const logoIcon = document.querySelector('.futurist-logo');
+    const logoText = document.querySelector('.logo-text');
+    
+    // Efeito de brilho aleatório
+    function randomGlow() {
+        if (!logoText || !logoIcon) return;
+        
+        const colors = ['#00F5FF', '#BC13FE', '#00FFE7'];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        logoText.style.textShadow = `0 0 15px ${randomColor}`;
+        logoIcon.style.filter = `drop-shadow(0 0 8px ${randomColor})`;
+        
+        setTimeout(randomGlow, 3000);
+    }
+    
+    // Inicia o efeito apenas se não for mobile
+    if (window.innerWidth > 768 && logoText && logoIcon) {
+        setTimeout(randomGlow, 2000);
+    }
+    
+    // Efeito de partículas para a logo
+    if (logoContainer) {
+        logoContainer.addEventListener('mousemove', function(e) {
+            if (window.innerWidth > 768) {
+                const rect = logoContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (Math.random() > 0.7) {
+                    const particle = document.createElement('div');
+                    particle.className = 'logo-particle';
+                    particle.style.left = `${x}px`;
+                    particle.style.top = `${y}px`;
+                    particle.style.backgroundColor = Math.random() > 0.5 ? '#00F5FF' : '#BC13FE';
+                    logoContainer.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        particle.remove();
+                    }, 1000);
                 }
             }
         });
     }
 
-    // Efeito de glitch aleatório na logo
-    const logo = document.querySelector('.futurist-logo');
-    if (logo) {
-        setInterval(() => {
-            if (Math.random() > 0.95) {
-                logo.style.animation = 'none';
-                void logo.offsetWidth; // Trigger reflow
-                logo.style.animation = 'glitch-effect 0.5s linear';
+    // Atualização do menu mobile
+    const menuToggle = document.querySelector('.menu-checkbox');
+    const menuIcon = document.querySelector('.open-menu i');
+    
+    if (menuToggle && menuIcon) {
+        menuToggle.addEventListener('change', function() {
+            if(this.checked) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+                document.body.style.overflow = '';
             }
-        }, 10000);
+        });
     }
-
-    // Intersection Observer para carregamento lazy
-    const lazyLoad = (element) => {
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Carrega elementos quando visíveis
-                        if (entry.target.dataset.src) {
-                            entry.target.src = entry.target.dataset.src;
-                        }
-                        if (entry.target.dataset.bg) {
-                            entry.target.style.backgroundImage = `url(${entry.target.dataset.bg})`;
-                        }
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: '100px' });
-
-            observer.observe(element);
-        }
-    };
-
-    // Aplica lazy loading a imagens e backgrounds
-    document.querySelectorAll('[data-src], [data-bg]').forEach(lazyLoad);
+    
+    // Fechar menu ao clicar em um link
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if(window.innerWidth <= 768 && menuToggle) {
+                menuToggle.checked = false;
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+                document.body.style.overflow = '';
+            }
+        });
+    });
+    
+    // Restante do código JavaScript...
+    [...]
 });
-
-// Web Worker para cálculos pesados
-if (window.Worker) {
-    const perfWorker = new Worker('js/perf-worker.js');
-    
-    // Envia dados para o worker se necessário
-    perfWorker.postMessage({ type: 'init', data: {} });
-    
-    perfWorker.onmessage = function(e) {
-        // Processa mensagens do worker
-    };
-}

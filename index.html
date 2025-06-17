@@ -3,50 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial - encontreaqui</title>
+    <title>encontreaqui - Recursos para Devs e Oportunidades de Monetização</title>
+    <meta name="description" content="Portal com ferramentas de IA gratuitas, cursos de programação e oportunidades de monetização para desenvolvedores">
+    <meta name="keywords" content="IA gratuita, programação, cursos de desenvolvimento, monetização para devs">
+    <meta name="author" content="José Gilmar Oliveira de Sá">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>encontreaqui</h1>
-        <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Alternar menu">
-        <label for="menu-toggle" class="menu-toggle open-menu">
-            <i class="fas fa-bars"></i>
-        </label>
-        <nav>
-            <label for="menu-toggle" class="menu-toggle close-menu">
-                <i class="fas fa-times"></i>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="encontreaqui.png" alt="Logo encontreaqui" class="logo-img">
+                <h1>encontreaqui</h1>
+            </div>
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Alternar menu">
+            <label for="menu-toggle" class="menu-toggle open-menu">
+                <i class="fas fa-bars"></i>
             </label>
-            <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="index2.html">Página Alternativa</a></li>
-                <li><a href="detalhes.html">Detalhes</a></li>
-                <li><a href="sobre.html">Sobre o Autor</a></li>
-                <li><a href="admin/login.html">Faça seu Cadastro</a></li>
-                <li><a href="https://www.magazinevoce.com.br/magazinecomlay/">Compre Aqui Diversos</a></li>
-                <li><a href="https://mygogroup.com.br/">Marketing Mygo</a></li>
-            </ul>
-        </nav>
-        <div class="container">
-            <img class="myimg" src="encontreaqui.png" alt="Logo do Meu Site">
+            <nav id="main-nav">
+                <label for="menu-toggle" class="menu-toggle close-menu">
+                    <i class="fas fa-times"></i>
+                </label>
+                <ul>
+                    <li><a href="index.html" class="active">Página Inicial</a></li>
+                    <li><a href="index2.html">Layout Alternativo</a></li>
+                    <li><a href="detalhes.html">Recursos</a></li>
+                    <li><a href="sobre.html">Sobre o Autor</a></li>
+                    <li><a href="admin/login.html" class="highlight">Faça seu Cadastro</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <main>
-        <p>Encontre Aqui: O Seu Caminho para Lugares, Trabalho, Apps e Cursos!<br>
-        Bem-vindo ao Encontre Aqui, o portal que abre as portas para um mundo de possibilidades!<br>
-        Descubra lugares fascinantes, de destinos turísticos imperdíveis a recantos especiais na sua cidade.<br>
-        Conquiste o trabalho dos seus sonhos com vagas que valorizam seu talento e impulsionam sua carreira.<br>
-        Desfrute dos melhores apps de streaming, trazendo séries, filmes e músicas para transformar seus momentos de lazer.<br>
-        E amplie seus horizontes com cursos que inspiram, capacitam e preparam você para novos desafios.<br>
-        No Encontre Aqui, tudo o que você precisa está a um clique. Explore, conecte-se e construa seu futuro agora!</p>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>O Seu Portal para o Mundo Tech</h2>
+                <p>Ferramentas de IA, cursos de programação e oportunidades de monetização - tudo em um só lugar!</p>
+                <div class="cta-buttons">
+                    <a href="#ai-tools" class="btn btn-primary">Explorar IAs</a>
+                    <a href="#courses" class="btn btn-secondary">Aprender Programação</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="ai-tools" class="ai-tools section-padding">
+            <h2 class="section-title">Ferramentas de IA Gratuitas para Desenvolvedores</h2>
+            <div class="tools-grid">
+                <div class="ai-card">
+                    <div class="ai-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Phind - Assistente de Código</h3>
+                    <p>Obtenha ajuda com seu código usando IA gratuita, similar ao ChatGPT mas focado em programação.</p>
+                    <a href="https://phind.com" target="_blank" class="btn">Acessar Ferramenta</a>
+                </div>
+                
+                <div class="ai-card">
+                    <div class="ai-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Codeium - Copilot Gratuito</h3>
+                    <p>Alternativa gratuita ao GitHub Copilot para autocompletar código em várias linguagens.</p>
+                    <a href="https://codeium.com" target="_blank" class="btn">Acessar Ferramenta</a>
+                </div>
+                
+                <div class="ai-card">
+                    <div class="ai-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3>Replit AI - Ambiente Completo</h3>
+                    <p>Ambiente de desenvolvimento online com IA integrada para ajudar na programação.</p>
+                    <a href="https://replit.com" target="_blank" class="btn">Acessar Ferramenta</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="programming-courses section-padding">
+            <h2 class="section-title">Aprenda Programação Gratuitamente</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="https://www.freecodecamp.org/icons/icon-512x512.png" alt="FreeCodeCamp" loading="lazy">
+                    <h3>FreeCodeCamp</h3>
+                    <p>Cursos completos de desenvolvimento web com certificação gratuita.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check"></i> HTML/CSS/JavaScript</li>
+                        <li><i class="fas fa-check"></i> Frontend e Backend</li>
+                        <li><i class="fas fa-check"></i> Projetos práticos</li>
+                    </ul>
+                    <a href="https://www.freecodecamp.org" target="_blank" class="btn">Começar a Estudar</a>
+                </div>
+                
+                <div class="course-card">
+                    <img src="https://cs50.harvard.edu/android-chrome-512x512.png" alt="CS50" loading="lazy">
+                    <h3>CS50 de Harvard</h3>
+                    <p>O famoso curso introdutório de Ciência da Computação de Harvard.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check"></i> Algoritmos</li>
+                        <li><i class="fas fa-check"></i> Estruturas de dados</li>
+                        <li><i class="fas fa-check"></i> Projetos desafiadores</li>
+                    </ul>
+                    <a href="https://cs50.harvard.edu" target="_blank" class="btn">Começar a Estudar</a>
+                </div>
+                
+                <div class="course-card">
+                    <img src="https://www.theodinproject.com/favicon-32x32.png" alt="The Odin Project" loading="lazy">
+                    <h3>The Odin Project</h3>
+                    <p>Curso completo de desenvolvimento web com foco em projetos reais.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check"></i> Ruby on Rails</li>
+                        <li><i class="fas fa-check"></i> Node.js</li>
+                        <li><i class="fas fa-check"></i> React</li>
+                    </ul>
+                    <a href="https://www.theodinproject.com" target="_blank" class="btn">Começar a Estudar</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="monetization section-padding">
+            <h2 class="section-title">Monetize Seus Conhecimentos</h2>
+            <div class="monetization-grid">
+                <div class="monetization-card">
+                    <div class="monetization-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Freelancing</h3>
+                    <p>Plataformas para trabalhar como desenvolvedor freelancer:</p>
+                    <ul>
+                        <li><a href="https://www.fiverr.com" target="_blank">Fiverr</a> - Pequenos projetos</li>
+                        <li><a href="https://www.upwork.com" target="_blank">Upwork</a> - Projetos maiores</li>
+                        <li><a href="https://www.toptal.com" target="_blank">Toptal</a> - Para experts</li>
+                    </ul>
+                </div>
+                
+                <div class="monetization-card">
+                    <div class="monetization-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Programas de Afiliados</h3>
+                    <p>Ganhe comissão recomendando produtos tech:</p>
+                    <ul>
+                        <li><a href="https://www.digitalocean.com" target="_blank">DigitalOcean</a> - Até $25 por indicação</li>
+                        <li><a href="https://www.siteground.com" target="_blank">SiteGround</a> - Hospedagem</li>
+                        <li><a href="https://www.udemy.com" target="_blank">Udemy</a> - Cursos</li>
+                    </ul>
+                </div>
+                
+                <div class="monetization-card">
+                    <div class="monetization-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <h3>Monetização de Conteúdo</h3>
+                    <p>Formas de ganhar dinheiro com conteúdo tech:</p>
+                    <ul>
+                        <li><strong>Google AdSense</strong> - Anúncios no seu site/blog</li>
+                        <li><strong>Medium Partner Program</strong> - Artigos técnicos</li>
+                        <li><strong>YouTube</strong> - Tutoriais em vídeo</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter section-padding">
+            <div class="newsletter-container">
+                <h3>Receba Novidades no Seu Email</h3>
+                <p>Inscreva-se para receber atualizações sobre novas ferramentas, cursos e oportunidades.</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Seu melhor email" required>
+                    <button type="submit" class="btn">Assinar</button>
+                </form>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>© 2025 José Gilmar Oliveira de Sá</p>
-        <p>"JESUS TODA HONRA E GLÓRIA"</p>
-        <p><a href="sobre.html">Sobre o Autor</a></p>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>encontreaqui</h4>
+                <p>O seu portal para ferramentas de desenvolvimento, aprendizado e oportunidades na área tech.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="admin/login.html">Cadastro</a></li>
+                    <li><a href="detalhes.html">Recursos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> jose.gilmar05@aluno.ifce.edu.br</li>
+                    <li><i class="fab fa-instagram"></i> @gilmroliveira</li>
+                    <li><i class="fab fa-github"></i> github.com/gilmroliveira</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 José Gilmar Oliveira de Sá. Todos os direitos reservados.</p>
+            <p>"JESUS TODA HONRA E GLÓRIA"</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

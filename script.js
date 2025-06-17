@@ -1,59 +1,80 @@
+// Configuração das partículas no background
 document.addEventListener('DOMContentLoaded', function() {
-    // Efeitos para a logo
-    const logoLink = document.querySelector('.logo-link');
-    
-    if (logoLink) {
-        // Efeito de partículas
-        logoLink.addEventListener('mousemove', function(e) {
-            if (window.innerWidth > 768) {
-                const rect = logoLink.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                if (Math.random() > 0.7) {
-                    createParticle(x, y);
+    // Carrega particles.js apenas se não for mobile
+    if (window.innerWidth > 768 && typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 40, density: { enable: true, value_area: 800 } },
+                color: { value: ["#00F5FF", "#BC13FE", "#FF00F5"] },
+                shape: { type: "circle" },
+                opacity: { random: true, value: 0.5 },
+                size: { random: true, value: 3 },
+                line_linked: { enable: false },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out"
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
                 }
             }
         });
-        
-        // Brilho aleatório
+    }
+
+    // Efeito de glitch aleatório na logo
+    const logo = document.querySelector('.futurist-logo');
+    if (logo) {
         setInterval(() => {
-            if (window.innerWidth > 768) {
-                const logo = document.querySelector('.futurist-logo');
-                const colors = ['#00F5FF', '#BC13FE', '#FF00F5'];
-                const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                
-                logo.style.filter = `
-                    drop-shadow(0 0 10px ${randomColor})
-                    drop-shadow(0 0 20px rgba(188, 19, 254, 0.3))
-                `;
+            if (Math.random() > 0.95) {
+                logo.style.animation = 'none';
+                void logo.offsetWidth; // Trigger reflow
+                logo.style.animation = 'glitch-effect 0.5s linear';
             }
-        }, 3000);
+        }, 10000);
     }
-    
-    function createParticle(x, y) {
-        const particle = document.createElement('div');
-        particle.className = 'logo-particle';
-        particle.style.left = `${x}px`;
-        particle.style.top = `${y}px`;
-        
-        // Cor aleatória
-        const colors = ['#00F5FF', '#BC13FE', '#FF00F5'];
-        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        
-        document.body.appendChild(particle);
-        
-        // Remover após animação
-        setTimeout(() => {
-            particle.remove();
-        }, 1500);
-    }
-    
-    // Menu mobile
-    const menuToggle = document.querySelector('#menu-toggle');
-    if (menuToggle) {
-        menuToggle.addEventListener('change', function() {
-            document.body.style.overflow = this.checked ? 'hidden' : '';
-        });
-    }
+
+    // Intersection Observer para carregamento lazy
+    const lazyLoad = (element) => {
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Carrega elementos quando visíveis
+                        if (entry.target.dataset.src) {
+                            entry.target.src = entry.target.dataset.src;
+                        }
+                        if (entry.target.dataset.bg) {
+                            entry.target.style.backgroundImage = `url(${entry.target.dataset.bg})`;
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '100px' });
+
+            observer.observe(element);
+        }
+    };
+
+    // Aplica lazy loading a imagens e backgrounds
+    document.querySelectorAll('[data-src], [data-bg]').forEach(lazyLoad);
 });
+
+// Web Worker para cálculos pesados
+if (window.Worker) {
+    const perfWorker = new Worker('js/perf-worker.js');
+    
+    // Envia dados para o worker se necessário
+    perfWorker.postMessage({ type: 'init', data: {} });
+    
+    perfWorker.onmessage = function(e) {
+        // Processa mensagens do worker
+    };
+}

@@ -592,3 +592,204 @@ footer {
         flex-direction: column;
     }
 }
+/* About Page Styles */
+.about-section {
+    background-color: var(--white);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.about-text h2 {
+    text-align: left;
+    margin-bottom: var(--space-lg);
+}
+
+.about-text h2::after {
+    margin: var(--space-sm) 0;
+}
+
+.skills {
+    margin: var(--space-lg) 0;
+}
+
+.skills h3 {
+    margin-bottom: var(--space-md);
+    color: var(--primary-color);
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-sm);
+}
+
+.skills-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.skills-list i {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    width: 25px;
+}
+
+.education-experience {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    margin: var(--space-xl) 0;
+}
+
+.education h3, .experience h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-lg);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.timeline-item {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-lg);
+    position: relative;
+    border-left: 2px solid var(--secondary-color);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+}
+
+.timeline-item h4 {
+    margin-bottom: var(--space-sm);
+    color: var(--dark-color);
+}
+
+.timeline-date {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: var(--space-sm);
+}
+
+.projects-showcase {
+    margin-top: var(--space-xl);
+}
+
+.section-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-lg);
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: var(--space-sm);
+}
+
+.section-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.project-card {
+    background-color: var(--white);
+    padding: var(--space-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    border-top: 4px solid var(--secondary-color);
+}
+
+.project-card h4 {
+    margin-bottom: var(--space-sm);
+    color: var(--primary-color);
+}
+
+.project-card p {
+    margin-bottom: var(--space-md);
+    color: var(--text-light);
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.contact-card {
+    text-align: center;
+    padding: var(--space-lg);
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-card i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--space-md);
+}
+
+.contact-card h4 {
+    margin-bottom: var(--space-sm);
+    color: var(--primary-color);
+}
+
+/* Responsividade para a página sobre */
+@media (max-width: 900px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+        max-width: 400px;
+        margin: 0 auto var(--space-lg);
+    }
+    
+    .education-experience {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-card {
+        padding: var(--space-md);
+    }
+}

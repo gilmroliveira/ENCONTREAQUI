@@ -1,46 +1,170 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre - encontreaqui</title>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="Sobre José Gilmar - Desenvolvedor Web e entusiasta de tecnologia">
+    <meta name="keywords" content="desenvolvedor, programador, tecnologia, portfólio, IFCE">
+    <title>Sobre José Gilmar - encontreaqui</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="futurist-header">
+    <header>
         <div class="header-container">
-            <a href="index.html" class="logo-link">
-                <img src="img/logo-futurista.svg" alt="encontreaqui" class="futurist-logo">
-            </a>
-            
-            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <div class="logo-container">
+                <img src="encontreaqui.png" alt="Logo encontreaqui" class="logo-img">
+                <h1>encontreaqui</h1>
+            </div>
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Alternar menu">
             <label for="menu-toggle" class="menu-toggle open-menu">
                 <i class="fas fa-bars"></i>
             </label>
-            
             <nav id="main-nav">
                 <label for="menu-toggle" class="menu-toggle close-menu">
                     <i class="fas fa-times"></i>
                 </label>
                 <ul>
                     <li><a href="index.html">Página Inicial</a></li>
-                    <li><a href="sobre.html" class="active">Sobre</a></li>
-                    <li><a href="admin/login.html" class="highlight">Cadastro</a></li>
+                    <li><a href="index2.html">Layout Alternativo</a></li>
+                    <li><a href="detalhes.html">Recursos</a></li>
+                    <li><a href="sobre.html" class="active">Sobre o Autor</a></li>
+                    <li><a href="admin/login.html" class="highlight">Faça seu Cadastro</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Conteúdo da página sobre -->
+        <section class="about-section section-padding">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="IMG_20250317_170448018.jpg" alt="José Gilmar" loading="lazy">
+                    </div>
+                    <div class="about-text">
+                        <h2 class="section-title">Sobre José Gilmar</h2>
+                        <p>Olá! Meu nome é José Gilmar Oliveira de Sá, sou estudante de tecnologia no IFCE e apaixonado por desenvolvimento web.</p>
+                        <p>Minha jornada na programação começou quando eu percebi o poder de transformação que a tecnologia tem na vida das pessoas. Desde então, tenho me dedicado a aprender e compartilhar conhecimento sobre desenvolvimento web.</p>
+                        <p>Este projeto, o <strong>encontreaqui</strong>, nasceu da vontade de criar um espaço onde desenvolvedores possam encontrar ferramentas úteis, oportunidades de aprendizado e formas de monetizar seus conhecimentos.</p>
+                        
+                        <div class="skills">
+                            <h3>Minhas Habilidades</h3>
+                            <ul class="skills-list">
+                                <li><i class="fab fa-html5"></i> HTML5 & CSS3</li>
+                                <li><i class="fab fa-js"></i> JavaScript</li>
+                                <li><i class="fas fa-mobile-alt"></i> Design Responsivo</li>
+                                <li><i class="fas fa-code"></i> Lógica de Programação</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="education-experience">
+                    <div class="education">
+                        <h3><i class="fas fa-graduation-cap"></i> Formação</h3>
+                        <div class="timeline-item">
+                            <h4>IFCE - Instituto Federal do Ceará</h4>
+                            <p class="timeline-date">2023 - Presente</p>
+                            <p>Curso Técnico em Informática</p>
+                        </div>
+                    </div>
+                    
+                    <div class="experience">
+                        <h3><i class="fas fa-briefcase"></i> Experiência</h3>
+                        <div class="timeline-item">
+                            <h4>Desenvolvedor Web Freelancer</h4>
+                            <p class="timeline-date">2022 - Presente</p>
+                            <p>Desenvolvimento de sites e aplicações web para clientes locais.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="projects-showcase">
+                    <h3 class="section-subtitle">Meus Projetos</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <h4>Fogueira na Casa da Vovó</h4>
+                            <p>Página para evento junino com informações e programação.</p>
+                            <a href="https://gilmroliveira.github.io/emcontrucao/" target="_blank" class="btn">Ver Projeto</a>
+                        </div>
+                        
+                        <div class="project-card">
+                            <h4>encontreaqui</h4>
+                            <p>Portal com recursos para desenvolvedores (este site).</p>
+                            <a href="index.html" class="btn">Ver Projeto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact-section section-padding" style="background-color: #f9f9f9;">
+            <div class="container">
+                <h2 class="section-title">Entre em Contato</h2>
+                <div class="contact-methods">
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <a href="mailto:jose.gilmar05@aluno.ifce.edu.br">jose.gilmar05@aluno.ifce.edu.br</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <i class="fab fa-instagram"></i>
+                        <h4>Instagram</h4>
+                        <a href="https://www.instagram.com/gilmroliveira/" target="_blank">@gilmroliveira</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <i class="fab fa-github"></i>
+                        <h4>GitHub</h4>
+                        <a href="https://github.com/gilmroliveira" target="_blank">github.com/gilmroliveira</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <h4>WhatsApp</h4>
+                        <a href="https://wa.me/5588921459439" target="_blank">(88) 92145-9439</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <!-- Rodapé -->
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>encontreaqui</h4>
+                <p>O seu portal para ferramentas de desenvolvimento, aprendizado e oportunidades na área tech.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="admin/login.html">Cadastro</a></li>
+                    <li><a href="detalhes.html">Recursos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> jose.gilmar05@aluno.ifce.edu.br</li>
+                    <li><i class="fab fa-instagram"></i> @gilmroliveira</li>
+                    <li><i class="fab fa-github"></i> github.com/gilmroliveira</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 José Gilmar Oliveira de Sá. Todos os direitos reservados.</p>
+            <p>"JESUS TODA HONRA E GLÓRIA"</p>
+        </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

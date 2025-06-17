@@ -5,38 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>encontreaqui - Recursos para Devs</title>
     
+    <!-- Pré-carregamento de recursos críticos -->
+    <link rel="preload" href="img/logo-futurista.svg" as="image">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" as="style">
+    
     <!-- Favicon -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/svg+xml" href="logo-futurista.svg">
+    <link rel="icon" type="image/svg+xml" href="img/logo-futurista.svg">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Pré-conexão para CDNs -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Meta tags de performance -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#0a0a1a">
 </head>
 <body>
+    <!-- Efeito de scanlines futurista -->
+    <div class="scanlines"></div>
+    
+    <!-- Efeito de partículas no background -->
+    <div id="particles-js"></div>
+    
     <header class="futurist-header">
-        <div class="header-container">
-            <a href="index.html" class="logo-link">
-                <img src="logo-futurista.svg" alt="encontreaqui" class="futurist-logo">
-            </a>
-            
-            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-            <label for="menu-toggle" class="menu-toggle open-menu">
-                <i class="fas fa-bars"></i>
-            </label>
-            
-            <nav id="main-nav">
-                <label for="menu-toggle" class="menu-toggle close-menu">
-                    <i class="fas fa-times"></i>
-                </label>
-                <ul>
-                    <li><a href="index.html" class="active">Página Inicial</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="admin/login.html" class="highlight">Cadastro</a></li>
-                </ul>
-            </nav>
-        </div>
+        <!-- Restante do header... -->
     </header>
 
     <main>
@@ -47,6 +49,8 @@
         <!-- Rodapé -->
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- Scripts otimizados -->
+    <script src="js/particles.min.js" defer></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

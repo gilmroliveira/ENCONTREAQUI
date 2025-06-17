@@ -1,151 +1,95 @@
+// Loader
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        const loader = document.querySelector('.futurist-loader');
+        if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 500);
+        }
+    }, 1500);
+});
+
+// Efeitos para a logo futurista
 document.addEventListener('DOMContentLoaded', function() {
-    // Menu Mobile
+    const logoContainer = document.querySelector('.logo-container');
+    const logoIcon = document.querySelector('.futurist-logo');
+    const logoText = document.querySelector('.logo-text');
+    
+    // Efeito de brilho aleatório
+    function randomGlow() {
+        if (!logoText || !logoIcon) return;
+        
+        const colors = ['#00F5FF', '#BC13FE', '#00FFE7'];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        logoText.style.textShadow = `0 0 15px ${randomColor}`;
+        logoIcon.style.filter = `drop-shadow(0 0 8px ${randomColor})`;
+        
+        setTimeout(randomGlow, 3000);
+    }
+    
+    // Inicia o efeito apenas se não for mobile
+    if (window.innerWidth > 768 && logoText && logoIcon) {
+        setTimeout(randomGlow, 2000);
+    }
+    
+    // Efeito de partículas para a logo
+    if (logoContainer) {
+        logoContainer.addEventListener('mousemove', function(e) {
+            if (window.innerWidth > 768) {
+                const rect = logoContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (Math.random() > 0.7) {
+                    const particle = document.createElement('div');
+                    particle.className = 'logo-particle';
+                    particle.style.left = `${x}px`;
+                    particle.style.top = `${y}px`;
+                    particle.style.backgroundColor = Math.random() > 0.5 ? '#00F5FF' : '#BC13FE';
+                    logoContainer.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        particle.remove();
+                    }, 1000);
+                }
+            }
+        });
+    }
+
+    // Atualização do menu mobile
     const menuToggle = document.querySelector('.menu-checkbox');
     const menuIcon = document.querySelector('.open-menu i');
     
-    menuToggle.addEventListener('change', function() {
-        if(this.checked) {
-            menuIcon.classList.remove('fa-bars');
-            menuIcon.classList.add('fa-times');
-            document.body.style.overflow = 'hidden'; // Previne scroll quando menu está aberto
-        } else {
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
-            document.body.style.overflow = '';
-        }
-    });
-    
-    // Fechar menu ao clicar em um link
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if(window.innerWidth <= 768) {
-                menuToggle.checked = false;
+    if (menuToggle && menuIcon) {
+        menuToggle.addEventListener('change', function() {
+            if(this.checked) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden';
+            } else {
                 menuIcon.classList.remove('fa-times');
                 menuIcon.classList.add('fa-bars');
                 document.body.style.overflow = '';
             }
         });
-    });
-    
-    // Smooth scrolling para âncoras
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if(targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Newsletter Form
-    const newsletterForm = document.getElementById('newsletter-form');
-    if(newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
-            const email = emailInput.value.trim();
-            
-            if(email) {
-                // Aqui você pode adicionar código para enviar o email
-                // Por exemplo, usando Fetch API para seu backend
-                alert('Obrigado por se inscrever! Você receberá nossas atualizações em breve.');
-                emailInput.value = '';
-                
-                // Exemplo com Fetch (descomente e ajuste para seu backend)
-                /*
-                fetch('/api/newsletter', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email: email }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.message);
-                    emailInput.value = '';
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Ocorreu um erro. Por favor, tente novamente.');
-                });
-                */
-            } else {
-                alert('Por favor, insira um email válido.');
-            }
-        });
     }
     
-    // Animação de scroll para as seções
-    const animateOnScroll = () => {
-        const sections = document.querySelectorAll('.ai-tools, .programming-courses, .monetization');
-        
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if(sectionTop < windowHeight * 0.75) {
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
-            }
-        });
-    };
-    
-    // Configura animação inicial
-    const sections = document.querySelectorAll('.ai-tools, .programming-courses, .monetization');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-    
-    // Dispara animação no carregamento
-    setTimeout(animateOnScroll, 500);
-    
-    // E ao rolar a página
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Tracking de cliques em links externos
-    document.querySelectorAll('a[href^="http"]').forEach(link => {
-        if(!link.href.includes(window.location.hostname)) {
-            link.addEventListener('click', function(e) {
-                // Aqui você pode adicionar tracking (Google Analytics, etc.)
-                console.log('Link externo clicado:', this.href);
-                
-                // Abre em nova aba (opcional)
-                // e.preventDefault();
-                // window.open(this.href, '_blank');
-            });
-        }
-    });
-    
-    // Carregamento lazy de imagens
-    if('IntersectionObserver' in window) {
-        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-        
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.src;
-                    observer.unobserve(img);
+    // Fechar menu ao clicar em um link
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if(window.innerWidth <= 768 && menuToggle) {
+                menuToggle.checked = false;
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
                 }
-            });
-        }, {
-            rootMargin: '200px 0px'
+                document.body.style.overflow = '';
+            }
         });
-        
-        lazyImages.forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
+    });
+    
+    // Restante do código JavaScript...
+    [...]
 });

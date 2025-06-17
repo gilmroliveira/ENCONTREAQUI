@@ -1,80 +1,103 @@
-// Verifica se é mobile
-const isMobile = () => window.innerWidth <= 768;
+/**
+ * Script principal otimizado para performance e compatibilidade
+ * Suporte para IE11+ e todos os navegadores modernos
+ */
 
-// Função otimizada para cálculos pesados
-function optimizedCalculation() {
-    return new Promise((resolve) => {
-        let sum = 0;
-        const total = 100000;
-        const chunkSize = 10000;
-        
-        function processChunk(start, end) {
-            for (let i = start; i < end; i++) {
-                sum += Math.sqrt(i);
-            }
-            
-            if (end < total) {
-                setTimeout(() => processChunk(end, end + chunkSize), 0);
-            } else {
-                console.log('Calculation completed:', sum);
-                resolve(sum);
-            }
-        }
-        
-        processChunk(0, chunkSize);
-    });
-}
-
-// Menu mobile
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos principais
     const menuToggle = document.getElementById('menu-toggle');
+    const navList = document.querySelector('.nav-list');
     
+    // Verifica suporte a Intersection Observer
+    const supportsIntersectionObserver = 'IntersectionObserver' in window;
+    
+    // Menu mobile
     if (menuToggle) {
-        menuToggle.addEventListener('change', function() {
-            document.body.style.overflow = this.checked ? 'hidden' : '';
+        menuToggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            navList.classList.toggle('active');
+            this.classList.toggle('active');
+            document.body.style.overflow = !isExpanded ? 'hidden' : '';
         });
     }
     
-    // Carrega efeitos apenas se não for mobile
-    if (!isMobile()) {
-        // Efeito hover na logo
-        const logo = document.querySelector('.futurist-logo');
-        if (logo) {
-            logo.addEventListener('mouseenter', () => {
-                logo.style.filter = 'drop-shadow(0 0 8px var(--neon-blue))';
-            });
-            
-            logo.addEventListener('mouseleave', () => {
-                logo.style.filter = 'none';
-            });
-        }
-        
-        // Cálculo otimizado
-        if (document.querySelector('.calculations-section')) {
-            optimizedCalculation().then(result => {
-                console.log('Resultado pronto:', result);
-            });
-        }
-    }
+    // Fecha menu ao clicar em link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navList.classList.remove('active');
+                menuToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
     
     // Lazy loading para imagens
-    const lazyLoad = () => {
-        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-        
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src || img.src;
-                        observer.unobserve(img);
-                    }
-                });
-            });
+    if (supportsIntersectionObserver) {
+        const lazyLoadImages = function() {
+            const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
             
-            lazyImages.forEach(img => observer.observe(img));
+            if ('IntersectionObserver' in window) {
+                const lazyImageObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove('lazy');
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        };
+        
+        lazyLoadImages();
+    }
+    
+    // Polyfill para elementos faltantes
+    if (!NodeList.prototype.forEach) {
+        NodeList.prototype.forEach = Array.prototype.forEach;
+    }
+    
+    // Suporte para navegadores antigos
+    if (!String.prototype.startsWith) {
+        String.prototype.startsWith = function(search, pos) {
+            return this.substr(!pos || pos < 0 ? 0 : +pos, search.length) === search;
+        };
+    }
+    
+    // Detecta Safari/iOS
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    
+    if (isSafari || isIOS) {
+        document.body.classList.add('safari');
+    }
+    
+    // Verifica conexão
+    const updateOnlineStatus = () => {
+        if (!navigator.onLine) {
+            console.log('Você está offline. Alguns recursos podem não estar disponíveis.');
         }
     };
     
-    lazyLoad();
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+    updateOnlineStatus();
 });
+
+// Fallback para browsers muito antigos
+if (window.addEventListener) {
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 0);
+    });
+}

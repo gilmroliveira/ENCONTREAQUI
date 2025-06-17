@@ -1,151 +1,196 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Menu Mobile
+    // Menu Mobile - Melhoria com acessibilidade
     const menuToggle = document.querySelector('.menu-checkbox');
     const menuIcon = document.querySelector('.open-menu i');
     
-    menuToggle.addEventListener('change', function() {
-        if(this.checked) {
-            menuIcon.classList.remove('fa-bars');
-            menuIcon.classList.add('fa-times');
-            document.body.style.overflow = 'hidden'; // Previne scroll quando menu está aberto
-        } else {
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
+    if (menuToggle && menuIcon) {
+        menuToggle.addEventListener('change', function() {
+            const isChecked = this.checked;
+            
+            // Acessibilidade - altera o aria-label
+            const menuLabel = document.querySelector('.open-menu .sr-only');
+            if (menuLabel) {
+                menuLabel.textContent = isChecked ? 'Fechar menu' : 'Abrir menu';
+            }
+            
+            // Alterna ícones
+            menuIcon.classList.toggle('fa-bars', !isChecked);
+            menuIcon.classList.toggle('fa-times', isChecked);
+            document.body.style.overflow = isChecked ? 'hidden' : '';
+            
+            // Acessibilidade - foco no menu quando aberto
+            if (isChecked) {
+                const firstMenuItem = document.querySelector('nav ul li:first-child a');
+                if (firstMenuItem) {
+                    setTimeout(() => firstMenuItem.focus(), 100);
+                }
+            }
+        });
+    }
+    
+    // Fechar menu ao clicar em um link - Melhoria com delegação de eventos
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth > 768) return;
+        
+        if (e.target.closest('nav ul li a')) {
+            menuToggle.checked = false;
+            if (menuIcon) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
             document.body.style.overflow = '';
         }
     });
     
-    // Fechar menu ao clicar em um link
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if(window.innerWidth <= 768) {
-                menuToggle.checked = false;
-                menuIcon.classList.remove('fa-times');
-                menuIcon.classList.add('fa-bars');
-                document.body.style.overflow = '';
-            }
-        });
-    });
-    
-    // Smooth scrolling para âncoras
+    // Smooth scrolling para âncoras - Melhoria com polyfill para navegadores antigos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
+            
+            if (targetId === '#' || !targetId) {
+                e.preventDefault();
+                return;
+            }
             
             const targetElement = document.querySelector(targetId);
-            if(targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+            if (targetElement) {
+                e.preventDefault();
+                
+                // Usa smooth scroll se disponível, senão faz scroll normal
+                if ('scrollBehavior' in document.documentElement.style) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    window.scrollTo(0, targetElement.offsetTop - 80);
+                }
+                
+                // Acessibilidade - foco no elemento alvo
+                setTimeout(() => {
+                    targetElement.setAttribute('tabindex', '-1');
+                    targetElement.focus();
+                }, 500);
             }
         });
     });
     
-    // Newsletter Form
+    // Newsletter Form - Melhoria com validação avançada
     const newsletterForm = document.getElementById('newsletter-form');
-    if(newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const formError = newsletterForm.querySelector('.form-error');
+        
+        // Validação em tempo real
+        if (emailInput) {
+            emailInput.addEventListener('input', function() {
+                if (this.validity.valid) {
+                    this.classList.remove('invalid');
+                    if (formError) formError.textContent = '';
+                }
+            });
+        }
+        
+        newsletterForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
-            const email = emailInput.value.trim();
             
-            if(email) {
-                // Aqui você pode adicionar código para enviar o email
-                // Por exemplo, usando Fetch API para seu backend
-                alert('Obrigado por se inscrever! Você receberá nossas atualizações em breve.');
+            if (!emailInput || !emailInput.value.trim()) {
+                if (formError) formError.textContent = 'Por favor, insira um endereço de email';
+                return;
+            }
+            
+            if (!emailInput.validity.valid) {
+                emailInput.classList.add('invalid');
+                if (formError) formError.textContent = 'Por favor, insira um email válido';
+                return;
+            }
+            
+            const email = emailInput.value.trim();
+            const submitButton = this.querySelector('button[type="submit"]');
+            
+            // Feedback visual
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            }
+            
+            try {
+                // Simulação de envio (substitua por chamada real à API)
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Sucesso
+                if (formError) {
+                    formError.textContent = 'Inscrição realizada com sucesso!';
+                    formError.style.color = 'green';
+                }
                 emailInput.value = '';
                 
-                // Exemplo com Fetch (descomente e ajuste para seu backend)
+                // Pode descomentar para usar com uma API real
                 /*
-                fetch('/api/newsletter', {
+                const response = await fetch('/api/newsletter', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email: email }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.message);
-                    emailInput.value = '';
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Ocorreu um erro. Por favor, tente novamente.');
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
                 });
+                
+                if (!response.ok) throw new Error('Erro na requisição');
+                
+                const data = await response.json();
+                if (formError) {
+                    formError.textContent = data.message || 'Inscrição realizada!';
+                    formError.style.color = 'green';
+                }
                 */
-            } else {
-                alert('Por favor, insira um email válido.');
+            } catch (error) {
+                console.error('Erro:', error);
+                if (formError) {
+                    formError.textContent = 'Ocorreu um erro. Por favor, tente novamente.';
+                    formError.style.color = 'red';
+                }
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Assinar';
+                }
+                
+                // Remove a mensagem após 5 segundos
+                if (formError) {
+                    setTimeout(() => {
+                        formError.textContent = '';
+                    }, 5000);
+                }
             }
         });
     }
     
-    // Animação de scroll para as seções
+    // Animação de scroll - Melhoria com IntersectionObserver
     const animateOnScroll = () => {
-        const sections = document.querySelectorAll('.ai-tools, .programming-courses, .monetization');
-        
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if(sectionTop < windowHeight * 0.75) {
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
-            }
-        });
-    };
-    
-    // Configura animação inicial
-    const sections = document.querySelectorAll('.ai-tools, .programming-courses, .monetization');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-    
-    // Dispara animação no carregamento
-    setTimeout(animateOnScroll, 500);
-    
-    // E ao rolar a página
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Tracking de cliques em links externos
-    document.querySelectorAll('a[href^="http"]').forEach(link => {
-        if(!link.href.includes(window.location.hostname)) {
-            link.addEventListener('click', function(e) {
-                // Aqui você pode adicionar tracking (Google Analytics, etc.)
-                console.log('Link externo clicado:', this.href);
-                
-                // Abre em nova aba (opcional)
-                // e.preventDefault();
-                // window.open(this.href, '_blank');
-            });
-        }
-    });
-    
-    // Carregamento lazy de imagens
-    if('IntersectionObserver' in window) {
-        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-        
-        const imageObserver = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.src;
-                    observer.unobserve(img);
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
                 }
             });
         }, {
-            rootMargin: '200px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
         });
         
-        lazyImages.forEach(img => {
-            imageObserver.observe(img);
+        document.querySelectorAll('.ai-tools, .programming-courses, .monetization, .about-content, .projects-grid, .contact-methods').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
         });
-    }
-});
+    };
+    
+    // Carrega apenas quando o DOM estiver pronto
+    if ('IntersectionObserver' in window) {
+        animateOnScroll();
+    } else {
+        // Fallback para navegadores sem suporte
+        document.querySelectorAll('.ai-tools, .programming-courses, .monetization, .about-content, .projects-grid, .contact-methods').forEach(section => {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';

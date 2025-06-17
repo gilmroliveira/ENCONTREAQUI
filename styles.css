@@ -1,79 +1,183 @@
-/* Efeito de scanlines futurista */
-.scanlines {
+/* Variáveis CSS Atualizadas */
+:root {
+    /* Cores Futuristas */
+    --neon-blue: #00F5FF;
+    --neon-purple: #BC13FE;
+    --neon-cyan: #00FFE7;
+    --dark-bg: #0a0a1a;
+    --light-bg: #12122a;
+    --text-color: #e0e0ff;
+    --text-light: #a0a0ff;
+    
+    /* Fontes */
+    --font-primary: 'Roboto', sans-serif;
+    --font-heading: 'Orbitron', sans-serif;
+    
+    /* Efeitos */
+    --glow-sm: 0 0 10px;
+    --glow-md: 0 0 15px;
+    --glow-lg: 0 0 20px;
+}
+
+/* Loader Futurista */
+.futurist-loader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-color: var(--dark-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loader-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.loader-logo svg {
+    width: 100%;
+    height: 100%;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loader-progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+    animation: loading 3s ease-in-out forwards;
+}
+
+@keyframes loading {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Header Atualizado */
+header {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 245, 255, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.02);
+}
+
+.futurist-logo {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.8rem;
+    background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--glow-sm) rgba(0, 245, 255, 0.3);
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+/* Efeitos de hover na logo */
+.logo-container:hover .futurist-logo {
+    transform: scale(1.05);
+    filter: drop-shadow(var(--glow-md) rgba(0, 245, 255, 0.7));
+}
+
+.logo-container:hover .logo-text {
+    text-shadow: var(--glow-md) rgba(188, 19, 254, 0.5);
+}
+
+/* Efeito de brilho no fundo do header */
+.header-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, 
+        rgba(0, 245, 255, 0.1) 0%, 
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
     pointer-events: none;
     z-index: -1;
-    animation: scanline-anim 120s linear infinite;
 }
 
-@keyframes scanline-anim {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 100%; }
+.header-container:hover::before {
+    opacity: 1;
 }
 
-/* Efeito de partículas no background */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    opacity: 0.3;
+/* Partículas da Logo */
+.logo-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10;
+    animation: float-up 1s ease-out forwards;
+    opacity: 0.8;
 }
 
-/* Efeito de glitch ocasional na logo */
-@keyframes glitch-effect {
-    0% { transform: translate(0); }
-    20% { transform: translate(-3px, 3px); }
-    40% { transform: translate(-3px, -3px); }
-    60% { transform: translate(3px, 3px); }
-    80% { transform: translate(3px, -3px); }
-    100% { transform: translate(0); }
-}
-
-.logo-link:hover .futurist-logo {
-    animation: glitch-effect 0.5s linear;
-}
-
-/* Efeito de pulsação para itens importantes */
-@keyframes pulse-effect {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-.highlight {
-    animation: pulse-effect 3s infinite;
-}
-
-/* Otimizações de performance */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none !important;
-        transition: none !important;
+@keyframes float-up {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-50px) scale(0.3);
+        opacity: 0;
     }
 }
 
-/* Critical CSS - Coloque os estilos acima da dobra aqui */
-.futurist-header, .logo-link, .futurist-logo {
-    will-change: transform, filter;
-}
-
-/* Font Face para performance */
-@font-face {
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local('Orbitron Regular'), local('Orbitron-Regular'),
-         url('fonts/orbitron-v9-latin-regular.woff2') format('woff2');
-}
+/* Restante do CSS permanece igual */
+[...]

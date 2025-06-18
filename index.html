@@ -4,37 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>encontreaqui - Recursos para Devs e Oportunidades de Monetização</title>
-    <meta name="description" content="Portal completo com ferramentas de IA gratuitas, cursos de programação certificados e estratégias de monetização para desenvolvedores de todos os níveis">
-    <meta name="keywords" content="IA gratuita, programação, cursos desenvolvimento web, monetização para devs, freelancing tech">
+    <meta name="description" content="Portal com ferramentas de IA gratuitas, cursos de programação e oportunidades de monetização para desenvolvedores">
+    <meta name="keywords" content="IA gratuita, programação, cursos de desenvolvimento, monetização para devs">
     <meta name="author" content="José Gilmar Oliveira de Sá">
     
     <!-- Meta tags para redes sociais -->
-    <meta property="og:title" content="encontreaqui - Recursos para Devs">
-    <meta property="og:description" content="Ferramentas de IA, cursos gratuitos e oportunidades para desenvolvedores">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://encontreaqui.com">
+    <meta property="og:url" content="https://encontreaqui.com/">
+    <meta property="og:title" content="encontreaqui - Recursos para Desenvolvedores">
+    <meta property="og:description" content="Ferramentas de IA gratuitas, cursos de programação e oportunidades de monetização">
     <meta property="og:image" content="https://encontreaqui.com/images/og-image.jpg">
     
+    <!-- Meta tags para Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="encontreaqui - Recursos para Desenvolvedores">
+    <meta name="twitter:description" content="Ferramentas de IA gratuitas, cursos de programação e oportunidades de monetização">
+    <meta name="twitter:image" content="https://encontreaqui.com/images/og-image.jpg">
+    
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" as="style">
+    
+    <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     
-    <!-- Preload para fontes críticas -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap"></noscript>
-    
-    <link rel="preload" href="styles.css" as="style">
+    <!-- Folhas de estilo -->
     <link rel="stylesheet" href="styles.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Skip link para acessibilidade -->
+    <!-- Skip Link para acessibilidade -->
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
-    
+
     <header>
         <div class="header-container">
             <div class="logo-container">
-                <img src="encontreaqui.png" alt="Logo encontreaqui - Portal de recursos para desenvolvedores" class="logo-img" width="50" height="50">
+                <img src="encontreaqui.png" alt="Logo encontreaqui - Portal de recursos para desenvolvedores" class="logo-img" width="50" height="50" loading="eager">
                 <h1>encontreaqui</h1>
             </div>
             <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Alternar menu de navegação">
@@ -49,45 +57,178 @@
                 </label>
                 <ul>
                     <li><a href="index.html" class="active" aria-current="page">Página Inicial</a></li>
-                    <li><a href="index2.html">Layout Alternativo</a></li>
+                    <li><a href="index2.html">Versão Acessível</a></li>
                     <li><a href="detalhes.html">Recursos</a></li>
                     <li><a href="sobre.html">Sobre o Autor</a></li>
-                    <li><a href="admin/login.html" class="highlight">Faça seu Cadastro</a></li>
+                    <li><a href="admin/login.html" class="highlight">Cadastro</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main id="main-content">
-        <!-- Seções mantidas, mas com melhorias de acessibilidade -->
-        <!-- ... (o restante do conteúdo permanece similar) ... -->
-        
-        <!-- Exemplo de melhoria em uma seção -->
-        <section id="ai-tools" class="ai-tools section-padding" aria-labelledby="ai-tools-heading">
-            <h2 id="ai-tools-heading" class="section-title">Ferramentas de IA Gratuitas para Desenvolvedores</h2>
-            <div class="tools-grid">
-                <article class="ai-card" itemscope itemtype="https://schema.org/SoftwareApplication">
-                    <div class="ai-icon" aria-hidden="true">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 itemprop="name">Phind - Assistente de Código</h3>
-                    <p itemprop="description">Obtenha ajuda com seu código usando IA gratuita, similar ao ChatGPT mas focado em programação.</p>
-                    <a href="https://phind.com" target="_blank" rel="noopener noreferrer" class="btn" itemprop="url">Acessar Ferramenta</a>
-                    <meta itemprop="applicationCategory" content="DeveloperApplication">
-                </article>
-                <!-- ... outros cards com schema markup similar ... -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>O Seu Portal para o Mundo Tech</h2>
+                <p>Ferramentas de IA, cursos de programação e oportunidades de monetização - tudo em um só lugar!</p>
+                <div class="cta-buttons">
+                    <a href="#ai-tools" class="btn btn-primary">Explorar IAs</a>
+                    <a href="#courses" class="btn btn-secondary">Aprender Programação</a>
+                </div>
             </div>
         </section>
 
-        <!-- Formulário com melhor validação -->
-        <section class="newsletter section-padding">
+        <section id="ai-tools" class="ai-tools section-padding" aria-labelledby="ai-tools-heading">
+            <h2 id="ai-tools-heading" class="section-title">Ferramentas de IA Gratuitas para Desenvolvedores</h2>
+            <div class="tools-grid">
+                <div class="ai-card" tabindex="0">
+                    <div class="ai-icon">
+                        <i class="fas fa-magic" aria-hidden="true"></i>
+                    </div>
+                    <h3>Seedance - IA para Design</h3>
+                    <p>Plataforma de design com IA que ajuda a criar interfaces impressionantes rapidamente.</p>
+                    <a href="https://seedance.net" target="_blank" rel="noopener noreferrer" class="btn">Acessar Ferramenta</a>
+                </div>
+
+                <div class="ai-card" tabindex="0">
+                    <div class="ai-icon">
+                        <i class="fas fa-robot" aria-hidden="true"></i>
+                    </div>
+                    <h3>Phind - Assistente de Código</h3>
+                    <p>Obtenha ajuda com seu código usando IA gratuita, similar ao ChatGPT mas focado em programação.</p>
+                    <a href="https://phind.com" target="_blank" rel="noopener noreferrer" class="btn">Acessar Ferramenta</a>
+                </div>
+
+                <div class="ai-card" tabindex="0">
+                    <div class="ai-icon">
+                        <i class="fas fa-code" aria-hidden="true"></i>
+                    </div>
+                    <h3>Codeium - Copilot Gratuito</h3>
+                    <p>Alternativa gratuita ao GitHub Copilot para autocompletar código em várias linguagens.</p>
+                    <a href="https://codeium.com" target="_blank" rel="noopener noreferrer" class="btn">Acessar Ferramenta</a>
+                </div>
+
+                <div class="ai-card" tabindex="0">
+                    <div class="ai-icon">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </div>
+                    <h3>Perplexity AI - Busca Inteligente</h3>
+                    <p>Assistente de pesquisa com IA que fornece respostas precisas com fontes citadas.</p>
+                    <a href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" class="btn">Acessar Ferramenta</a>
+                </div>
+
+                <div class="ai-card" tabindex="0">
+                    <div class="ai-icon">
+                        <i class="fas fa-comment-alt" aria-hidden="true"></i>
+                    </div>
+                    <h3>Claude AI - Assistente Conversacional</h3>
+                    <p>IA conversacional avançada com foco em ética e segurança de informações.</p>
+                    <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" class="btn">Acessar Ferramenta</a>
+                </div>
+
+                <div class="ai-card" tabindex="0">
+                    <div class="ai-icon">
+                        <i class="fas fa-terminal" aria-hidden="true"></i>
+                    </div>
+                    <h3>Replit AI - Ambiente Completo</h3>
+                    <p>Ambiente de desenvolvimento online com IA integrada para ajudar na programação.</p>
+                    <a href="https://replit.com" target="_blank" rel="noopener noreferrer" class="btn">Acessar Ferramenta</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="programming-courses section-padding" aria-labelledby="courses-heading">
+            <h2 id="courses-heading" class="section-title">Aprenda Programação Gratuitamente</h2>
+            <div class="courses-grid">
+                <div class="course-card" tabindex="0">
+                    <img src="https://www.freecodecamp.org/icons/icon-512x512.png" alt="FreeCodeCamp" loading="lazy" width="512" height="512">
+                    <h3>FreeCodeCamp</h3>
+                    <p>Cursos completos de desenvolvimento web com certificação gratuita.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> HTML/CSS/JavaScript</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Frontend e Backend</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Projetos práticos</li>
+                    </ul>
+                    <a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer" class="btn">Começar a Estudar</a>
+                </div>
+
+                <div class="course-card" tabindex="0">
+                    <img src="https://cs50.harvard.edu/android-chrome-512x512.png" alt="CS50" loading="lazy" width="512" height="512">
+                    <h3>CS50 de Harvard</h3>
+                    <p>O famoso curso introdutório de Ciência da Computação de Harvard.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Algoritmos</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Estruturas de dados</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Projetos desafiadores</li>
+                    </ul>
+                    <a href="https://cs50.harvard.edu" target="_blank" rel="noopener noreferrer" class="btn">Começar a Estudar</a>
+                </div>
+
+                <div class="course-card" tabindex="0">
+                    <img src="https://www.theodinproject.com/favicon-32x32.png" alt="The Odin Project" loading="lazy" width="32" height="32">
+                    <h3>The Odin Project</h3>
+                    <p>Curso completo de desenvolvimento web com foco em projetos reais.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Ruby on Rails</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Node.js</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> React</li>
+                    </ul>
+                    <a href="https://www.theodinproject.com" target="_blank" rel="noopener noreferrer" class="btn">Começar a Estudar</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="monetization section-padding" aria-labelledby="monetization-heading">
+            <h2 id="monetization-heading" class="section-title">Monetize Seus Conhecimentos</h2>
+            <div class="monetization-grid">
+                <div class="monetization-card" tabindex="0">
+                    <div class="monetization-icon">
+                        <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                    </div>
+                    <h3>Freelancing</h3>
+                    <p>Plataformas para trabalhar como desenvolvedor freelancer:</p>
+                    <ul>
+                        <li><a href="https://www.fiverr.com" target="_blank" rel="noopener noreferrer">Fiverr</a> - Pequenos projetos</li>
+                        <li><a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Upwork</a> - Projetos maiores</li>
+                        <li><a href="https://www.toptal.com" target="_blank" rel="noopener noreferrer">Toptal</a> - Para experts</li>
+                    </ul>
+                </div>
+
+                <div class="monetization-card" tabindex="0">
+                    <div class="monetization-icon">
+                        <i class="fas fa-link" aria-hidden="true"></i>
+                    </div>
+                    <h3>Programas de Afiliados</h3>
+                    <p>Ganhe comissão recomendando produtos tech:</p>
+                    <ul>
+                        <li><a href="https://www.digitalocean.com" target="_blank" rel="noopener noreferrer">DigitalOcean</a> - Até $25 por indicação</li>
+                        <li><a href="https://www.siteground.com" target="_blank" rel="noopener noreferrer">SiteGround</a> - Hospedagem</li>
+                        <li><a href="https://www.udemy.com" target="_blank" rel="noopener noreferrer">Udemy</a> - Cursos</li>
+                    </ul>
+                </div>
+
+                <div class="monetization-card" tabindex="0">
+                    <div class="monetization-icon">
+                        <i class="fas fa-ad" aria-hidden="true"></i>
+                    </div>
+                    <h3>Monetização de Conteúdo</h3>
+                    <p>Formas de ganhar dinheiro com conteúdo tech:</p>
+                    <ul>
+                        <li><strong>Google AdSense</strong> - Anúncios no seu site/blog</li>
+                        <li><strong>Medium Partner Program</strong> - Artigos técnicos</li>
+                        <li><strong>YouTube</strong> - Tutoriais em vídeo</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter section-padding" aria-labelledby="newsletter-heading">
             <div class="newsletter-container">
-                <h3>Receba Novidades no Seu Email</h3>
+                <h3 id="newsletter-heading">Receba Novidades no Seu Email</h3>
                 <p>Inscreva-se para receber atualizações sobre novas ferramentas, cursos e oportunidades.</p>
-                <form id="newsletter-form" novalidate>
-                    <label for="newsletter-email" class="sr-only">Seu melhor email</label>
-                    <input type="email" id="newsletter-email" placeholder="Seu melhor email" required
-                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                <form id="newsletter-form">
+                    <label for="newsletter-email" class="sr-only">Seu email</label>
+                    <input type="email" id="newsletter-email" placeholder="Seu melhor email" required>
                     <button type="submit" class="btn">Assinar</button>
                     <div class="form-error" aria-live="polite"></div>
                 </form>
@@ -96,10 +237,38 @@
     </main>
 
     <footer>
-        <!-- Rodapé sem alterações significativas -->
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>encontreaqui</h4>
+                <p>O seu portal para ferramentas de desenvolvimento, aprendizado e oportunidades na área tech.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="index2.html">Versão Acessível</a></li>
+                    <li><a href="detalhes.html">Recursos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="fas fa-envelope" aria-hidden="true"></i> jose.gilmar05@aluno.ifce.edu.br</li>
+                    <li><i class="fab fa-instagram" aria-hidden="true"></i> @gilmroliveira</li>
+                    <li><i class="fab fa-github" aria-hidden="true"></i> github.com/gilmroliveira</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 José Gilmar Oliveira de Sá. Todos os direitos reservados.</p>
+            <p>"JESUS TODA HONRA E GLÓRIA"</p>
+        </div>
     </footer>
 
-    <!-- Scripts no final do body -->
     <script src="script.js" defer></script>
 </body>
 </html>

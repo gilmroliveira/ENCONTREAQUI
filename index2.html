@@ -1,52 +1,188 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial (Layout Alternativo) - encontreaqui</title>
-    <link rel="stylesheet" href="style2.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>encontreaqui - Versão Acessível</title>
+    <meta name="description" content="Portal acessível com ferramentas para desenvolvedores">
+    <meta name="keywords" content="acessibilidade, programação, IA, cursos, desenvolvimento">
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <header>
-        <h1>encontreaqui</h1>
-        <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Alternar menu">
-        <label for="menu-toggle" class="menu-toggle open-menu">
-            <i class="fas fa-bars"></i>
-        </label>
-        <nav>
-            <label for="menu-toggle" class="menu-toggle close-menu">
-                <i class="fas fa-times"></i>
-            </label>
-            <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="index2.html">Página Inicial (Alternativa)</a></li>
-                <li><a href="detalhes.html">Detalhes</a></li>
-                <li><a href="sobre.html">Sobre o Autor</a></li>
-                <li><a href="admin/login.html">Faça seu Cadastro</a></li>
-                <li><a href="https://www.magazinevoce.com.br/magazinecomlay/">Compre Aqui Diversos</a></li>
-                <li><a href="https://mygogroup.com.br/">Marketing Mygo</a></li>
-            </ul>
-        </nav>
+<body class="light-mode">
+    <!-- Barra de Acessibilidade -->
+    <div class="accessibility-bar">
         <div class="container">
-            <img class="myimg" src="encontreaqui.png" alt="Logo do Meu Site">
+            <button id="contrast-toggle" aria-label="Alternar alto contraste">
+                <i class="fas fa-adjust"></i> Contraste
+            </button>
+            <button id="font-increase" aria-label="Aumentar tamanho da fonte">
+                <i class="fas fa-text-height"></i> A+
+            </button>
+            <button id="font-decrease" aria-label="Diminuir tamanho da fonte">
+                <i class="fas fa-text-width"></i> A-
+            </button>
+            <button id="font-reset" aria-label="Resetar tamanho da fonte">
+                <i class="fas fa-font"></i> A
+            </button>
+            <button id="read-page" aria-label="Ler página em voz alta">
+                <i class="fas fa-volume-up"></i> Ler
+            </button>
+        </div>
+    </div>
+
+    <!-- Cabeçalho Simplificado -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="encontreaqui.png" alt="Logo encontreaqui - Versão Acessível" class="logo-img">
+                <h1>encontreaqui</h1>
+            </div>
+            <nav aria-label="Navegação principal">
+                <ul class="main-nav">
+                    <li><a href="index.html" class="nav-link">Versão Padrão</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                    <li><a href="admin/login.html" class="nav-link highlight">Cadastro</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main>
-        <p>Encontre Aqui: O Seu Caminho para Lugares, Trabalho, Apps e Cursos!<br>
-        Bem-vindo ao Encontre Aqui, o portal que abre as portas para um mundo de possibilidades!<br>
-        Descubra lugares fascinantes, de destinos turísticos imperdíveis a recantos especiais na sua cidade.<br>
-        Conquiste o trabalho dos seus sonhos com vagas que valorizam seu talento e impulsionam sua carreira.<br>
-        Desfrute dos melhores apps de streaming, trazendo séries, filmes e músicas para transformar seus momentos de lazer.<br>
-        E amplie seus horizontes com cursos que inspiram, capacitam e preparam você para novos desafios.<br>
-        No Encontre Aqui, tudo o que você precisa está a um clique. Explore, conecte-se e construa seu futuro agora!</p>
+    <main id="main-content" class="container">
+        <!-- Seção de Destaque -->
+        <section class="hero-section" aria-labelledby="hero-heading">
+            <div class="hero-content">
+                <h2 id="hero-heading">Bem-vindo à versão acessível do encontreaqui</h2>
+                <p>Este portal foi adaptado para melhor atender às necessidades de todos os usuários.</p>
+                <div class="cta-buttons">
+                    <a href="#tools" class="btn btn-primary">Ferramentas de IA</a>
+                    <a href="#courses" class="btn btn-secondary">Cursos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Ferramentas -->
+        <section id="tools" class="tools-section" aria-labelledby="tools-heading">
+            <h2 id="tools-heading">Ferramentas de IA Acessíveis</h2>
+            <div class="tools-grid">
+                <article class="tool-card" tabindex="0">
+                    <div class="tool-icon" aria-hidden="true">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Phind - Assistente de Código</h3>
+                    <p>Assistente de IA focado em programação com suporte a teclado.</p>
+                    <a href="https://phind.com" target="_blank" rel="noopener noreferrer" class="btn">Acessar</a>
+                </article>
+
+                <article class="tool-card" tabindex="0">
+                    <div class="tool-icon" aria-hidden="true">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Codeium - Copilot Gratuito</h3>
+                    <p>Autocompletar de código acessível com atalhos de teclado.</p>
+                    <a href="https://codeium.com" target="_blank" rel="noopener noreferrer" class="btn">Acessar</a>
+                </article>
+
+                <article class="tool-card" tabindex="0">
+                    <div class="tool-icon" aria-hidden="true">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3>Replit AI - Ambiente Completo</h3>
+                    <p>IDE online com navegação por teclado e alto contraste.</p>
+                    <a href="https://replit.com" target="_blank" rel="noopener noreferrer" class="btn">Acessar</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Seção de Cursos -->
+        <section id="courses" class="courses-section" aria-labelledby="courses-heading">
+            <h2 id="courses-heading">Cursos Acessíveis</h2>
+            <div class="courses-grid">
+                <article class="course-card" tabindex="0">
+                    <img src="https://www.freecodecamp.org/icons/icon-512x512.png" alt="Logo FreeCodeCamp" loading="lazy">
+                    <h3>FreeCodeCamp</h3>
+                    <p>Cursos com legendas e transcrições completas.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> HTML/CSS/JavaScript</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Frontend e Backend</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Projetos práticos</li>
+                    </ul>
+                    <a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer" class="btn">Começar</a>
+                </article>
+
+                <article class="course-card" tabindex="0">
+                    <img src="https://cs50.harvard.edu/android-chrome-512x512.png" alt="Logo CS50" loading="lazy">
+                    <h3>CS50 de Harvard</h3>
+                    <p>Legendado em português com exercícios adaptáveis.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Algoritmos</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Estruturas de dados</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Projetos desafiadores</li>
+                    </ul>
+                    <a href="https://cs50.harvard.edu" target="_blank" rel="noopener noreferrer" class="btn">Começar</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Seção de Vídeo Acessível -->
+        <section class="video-section" aria-labelledby="video-heading">
+            <h2 id="video-heading">Tutorial em Libras</h2>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <!-- Vídeo exemplo com opções de acessibilidade -->
+                    <video controls aria-describedby="video-desc">
+                        <source src="tutorial-libras.mp4" type="video/mp4">
+                        <track src="legendas.vtt" kind="subtitles" srclang="pt" label="Português">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                    <p id="video-desc">Vídeo tutorial com instrutor em Libras e legendas em português.</p>
+                </div>
+                <div class="transcript">
+                    <button id="show-transcript" class="btn">Mostrar Transcrição</button>
+                    <div id="transcript-text" class="hidden">
+                        <h3>Transcrição do Vídeo</h3>
+                        <p>[Início do vídeo] O instrutor cumprimenta em Libras: "Olá, bem-vindo ao encontreaqui!"</p>
+                        <p>[00:15] Demonstra como navegar no site usando os atalhos de teclado.</p>
+                        <p>[00:30] Explica como ativar o modo de alto contraste.</p>
+                        <p>[Fim do vídeo]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>© 2025 José Gilmar Oliveira de Sá</p>
-        <p>"JESUS TODA HONRA E GLÓRIA"</p>
-        <p><a href="sobre.html">Sobre o Autor</a></p>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <section aria-labelledby="footer-about">
+                    <h3 id="footer-about">Sobre</h3>
+                    <p>Portal acessível com recursos para desenvolvedores de todos os perfis.</p>
+                </section>
+
+                <section aria-labelledby="footer-links">
+                    <h3 id="footer-links">Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Versão Padrão</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="admin/login.html">Cadastro</a></li>
+                    </ul>
+                </section>
+
+                <section aria-labelledby="footer-contact">
+                    <h3 id="footer-contact">Contato Acessível</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> Email: jose.gilmar05@aluno.ifce.edu.br</li>
+                        <li><i class="fab fa-whatsapp"></i> WhatsApp: (88) 92145-9439</li>
+                    </ul>
+                </section>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 encontreaqui - Todos os direitos reservados</p>
+                <p>Desenvolvido com foco em acessibilidade</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="script2.js"></script>
 </body>
 </html>

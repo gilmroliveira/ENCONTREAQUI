@@ -6,6 +6,28 @@
     <title>encontreaqui - Versão Acessível</title>
     <meta name="description" content="Portal acessível com ferramentas para desenvolvedores">
     <meta name="keywords" content="acessibilidade, programação, IA, cursos, desenvolvimento">
+    <meta name="author" content="José Gilmar Oliveira de Sá">
+    
+    <!-- Meta tags para acessibilidade -->
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="color-scheme" content="light dark">
+    
+    <!-- Meta tags para redes sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://encontreaqui.com/index2.html">
+    <meta property="og:title" content="encontreaqui - Versão Acessível">
+    <meta property="og:description" content="Portal acessível com ferramentas para desenvolvedores">
+    <meta property="og:image" content="https://encontreaqui.com/images/og-image-accessible.jpg">
+    
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="styles2.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Folhas de estilo -->
     <link rel="stylesheet" href="styles2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -14,19 +36,22 @@
     <div class="accessibility-bar">
         <div class="container">
             <button id="contrast-toggle" aria-label="Alternar alto contraste">
-                <i class="fas fa-adjust"></i> Contraste
+                <i class="fas fa-adjust" aria-hidden="true"></i> Contraste
             </button>
             <button id="font-increase" aria-label="Aumentar tamanho da fonte">
-                <i class="fas fa-text-height"></i> A+
+                <i class="fas fa-text-height" aria-hidden="true"></i> A+
             </button>
             <button id="font-decrease" aria-label="Diminuir tamanho da fonte">
-                <i class="fas fa-text-width"></i> A-
+                <i class="fas fa-text-width" aria-hidden="true"></i> A-
             </button>
             <button id="font-reset" aria-label="Resetar tamanho da fonte">
-                <i class="fas fa-font"></i> A
+                <i class="fas fa-font" aria-hidden="true"></i> Padrão
             </button>
             <button id="read-page" aria-label="Ler página em voz alta">
-                <i class="fas fa-volume-up"></i> Ler
+                <i class="fas fa-volume-up" aria-hidden="true"></i> Ler
+            </button>
+            <button id="reduce-motion" aria-label="Reduzir animações">
+                <i class="fas fa-running" aria-hidden="true"></i> Menos Animação
             </button>
         </div>
     </div>
@@ -35,14 +60,14 @@
     <header class="main-header">
         <div class="container">
             <div class="logo-container">
-                <img src="encontreaqui.png" alt="Logo encontreaqui - Versão Acessível" class="logo-img">
+                <img src="encontreaqui.png" alt="Logo encontreaqui - Versão Acessível" class="logo-img" width="50" height="50" loading="eager">
                 <h1>encontreaqui</h1>
             </div>
             <nav aria-label="Navegação principal">
                 <ul class="main-nav">
                     <li><a href="index.html" class="nav-link">Versão Padrão</a></li>
+                    <li><a href="detalhes.html" class="nav-link">Recursos</a></li>
                     <li><a href="sobre.html" class="nav-link">Sobre</a></li>
-                    <li><a href="admin/login.html" class="nav-link highlight">Cadastro</a></li>
                 </ul>
             </nav>
         </div>
@@ -53,7 +78,7 @@
         <section class="hero-section" aria-labelledby="hero-heading">
             <div class="hero-content">
                 <h2 id="hero-heading">Bem-vindo à versão acessível do encontreaqui</h2>
-                <p>Este portal foi adaptado para melhor atender às necessidades de todos os usuários.</p>
+                <p>Este portal foi adaptado para melhor atender às necessidades de todos os usuários, incluindo pessoas com deficiência visual, motora ou cognitiva.</p>
                 <div class="cta-buttons">
                     <a href="#tools" class="btn btn-primary">Ferramentas de IA</a>
                     <a href="#courses" class="btn btn-secondary">Cursos</a>
@@ -67,10 +92,27 @@
             <div class="tools-grid">
                 <article class="tool-card" tabindex="0">
                     <div class="tool-icon" aria-hidden="true">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Seedance - IA para Design</h3>
+                    <p>Plataforma de design com IA que ajuda a criar interfaces impressionantes rapidamente.</p>
+                    <div class="tool-features">
+                        <span class="feature-badge" aria-label="Navegação por teclado"><i class="fas fa-keyboard"></i> Teclado</span>
+                        <span class="feature-badge" aria-label="Alto contraste"><i class="fas fa-adjust"></i> Contraste</span>
+                    </div>
+                    <a href="https://seedance.net" target="_blank" rel="noopener noreferrer" class="btn">Acessar</a>
+                </article>
+
+                <article class="tool-card" tabindex="0">
+                    <div class="tool-icon" aria-hidden="true">
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3>Phind - Assistente de Código</h3>
                     <p>Assistente de IA focado em programação com suporte a teclado.</p>
+                    <div class="tool-features">
+                        <span class="feature-badge" aria-label="Navegação por teclado"><i class="fas fa-keyboard"></i> Teclado</span>
+                        <span class="feature-badge" aria-label="Leitor de tela"><i class="fas fa-assistive-listening-systems"></i> Leitor</span>
+                    </div>
                     <a href="https://phind.com" target="_blank" rel="noopener noreferrer" class="btn">Acessar</a>
                 </article>
 
@@ -80,7 +122,37 @@
                     </div>
                     <h3>Codeium - Copilot Gratuito</h3>
                     <p>Autocompletar de código acessível com atalhos de teclado.</p>
+                    <div class="tool-features">
+                        <span class="feature-badge" aria-label="Navegação por teclado"><i class="fas fa-keyboard"></i> Teclado</span>
+                        <span class="feature-badge" aria-label="Modo escuro"><i class="fas fa-moon"></i> Escuro</span>
+                    </div>
                     <a href="https://codeium.com" target="_blank" rel="noopener noreferrer" class="btn">Acessar</a>
+                </article>
+
+                <article class="tool-card" tabindex="0">
+                    <div class="tool-icon" aria-hidden="true">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Perplexity AI - Busca Inteligente</h3>
+                    <p>Assistente de pesquisa com IA que fornece respostas precisas com fontes citadas.</p>
+                    <div class="tool-features">
+                        <span class="feature-badge" aria-label="Navegação por teclado"><i class="fas fa-keyboard"></i> Teclado</span>
+                        <span class="feature-badge" aria-label="Legendas"><i class="fas fa-closed-captioning"></i> Legendas</span>
+                    </div>
+                    <a href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" class="btn">Acessar</a>
+                </article>
+
+                <article class="tool-card" tabindex="0">
+                    <div class="tool-icon" aria-hidden="true">
+                        <i class="fas fa-comment-alt"></i>
+                    </div>
+                    <h3>Claude AI - Assistente Conversacional</h3>
+                    <p>IA conversacional avançada com foco em ética e segurança de informações.</p>
+                    <div class="tool-features">
+                        <span class="feature-badge" aria-label="Navegação por teclado"><i class="fas fa-keyboard"></i> Teclado</span>
+                        <span class="feature-badge" aria-label="Controle por voz"><i class="fas fa-microphone"></i> Voz</span>
+                    </div>
+                    <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" class="btn">Acessar</a>
                 </article>
 
                 <article class="tool-card" tabindex="0">
@@ -89,6 +161,10 @@
                     </div>
                     <h3>Replit AI - Ambiente Completo</h3>
                     <p>IDE online com navegação por teclado e alto contraste.</p>
+                    <div class="tool-features">
+                        <span class="feature-badge" aria-label="Navegação por teclado"><i class="fas fa-keyboard"></i> Teclado</span>
+                        <span class="feature-badge" aria-label="Alto contraste"><i class="fas fa-adjust"></i> Contraste</span>
+                    </div>
                     <a href="https://replit.com" target="_blank" rel="noopener noreferrer" class="btn">Acessar</a>
                 </article>
             </div>
@@ -99,7 +175,7 @@
             <h2 id="courses-heading">Cursos Acessíveis</h2>
             <div class="courses-grid">
                 <article class="course-card" tabindex="0">
-                    <img src="https://www.freecodecamp.org/icons/icon-512x512.png" alt="Logo FreeCodeCamp" loading="lazy">
+                    <img src="https://www.freecodecamp.org/icons/icon-512x512.png" alt="Logo FreeCodeCamp" loading="lazy" width="512" height="512">
                     <h3>FreeCodeCamp</h3>
                     <p>Cursos com legendas e transcrições completas.</p>
                     <ul class="course-features">
@@ -107,11 +183,16 @@
                         <li><i class="fas fa-check" aria-hidden="true"></i> Frontend e Backend</li>
                         <li><i class="fas fa-check" aria-hidden="true"></i> Projetos práticos</li>
                     </ul>
+                    <div class="accessibility-features">
+                        <span class="accessibility-badge" aria-label="Legendas disponíveis"><i class="fas fa-closed-captioning"></i></span>
+                        <span class="accessibility-badge" aria-label="Transcrições disponíveis"><i class="fas fa-file-alt"></i></span>
+                        <span class="accessibility-badge" aria-label="Navegação por teclado"><i class="fas fa-keyboard"></i></span>
+                    </div>
                     <a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer" class="btn">Começar</a>
                 </article>
 
                 <article class="course-card" tabindex="0">
-                    <img src="https://cs50.harvard.edu/android-chrome-512x512.png" alt="Logo CS50" loading="lazy">
+                    <img src="https://cs50.harvard.edu/android-chrome-512x512.png" alt="Logo CS50" loading="lazy" width="512" height="512">
                     <h3>CS50 de Harvard</h3>
                     <p>Legendado em português com exercícios adaptáveis.</p>
                     <ul class="course-features">
@@ -119,7 +200,29 @@
                         <li><i class="fas fa-check" aria-hidden="true"></i> Estruturas de dados</li>
                         <li><i class="fas fa-check" aria-hidden="true"></i> Projetos desafiadores</li>
                     </ul>
+                    <div class="accessibility-features">
+                        <span class="accessibility-badge" aria-label="Legendas disponíveis"><i class="fas fa-closed-captioning"></i></span>
+                        <span class="accessibility-badge" aria-label="Acesso para deficientes auditivos"><i class="fas fa-deaf"></i></span>
+                        <span class="accessibility-badge" aria-label="Navegação por teclado"><i class="fas fa-keyboard"></i></span>
+                    </div>
                     <a href="https://cs50.harvard.edu" target="_blank" rel="noopener noreferrer" class="btn">Começar</a>
+                </article>
+
+                <article class="course-card" tabindex="0">
+                    <img src="https://www.theodinproject.com/favicon-32x32.png" alt="Logo The Odin Project" loading="lazy" width="32" height="32">
+                    <h3>The Odin Project</h3>
+                    <p>Curso completo com foco em projetos reais e acessibilidade.</p>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Ruby on Rails</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Node.js</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> React</li>
+                    </ul>
+                    <div class="accessibility-features">
+                        <span class="accessibility-badge" aria-label="Modo escuro disponível"><i class="fas fa-moon"></i></span>
+                        <span class="accessibility-badge" aria-label="Navegação por teclado"><i class="fas fa-keyboard"></i></span>
+                        <span class="accessibility-badge" aria-label="Texto aumentável"><i class="fas fa-text-height"></i></span>
+                    </div>
+                    <a href="https://www.theodinproject.com" target="_blank" rel="noopener noreferrer" class="btn">Começar</a>
                 </article>
             </div>
         </section>
@@ -129,7 +232,6 @@
             <h2 id="video-heading">Tutorial em Libras</h2>
             <div class="video-container">
                 <div class="video-wrapper">
-                    <!-- Vídeo exemplo com opções de acessibilidade -->
                     <video controls aria-describedby="video-desc">
                         <source src="tutorial-libras.mp4" type="video/mp4">
                         <track src="legendas.vtt" kind="subtitles" srclang="pt" label="Português">
@@ -149,6 +251,32 @@
                 </div>
             </div>
         </section>
+
+        <!-- Seção de Contato Acessível -->
+        <section class="contact-section section-padding" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading">Contato Acessível</h2>
+                <div class="contact-methods">
+                    <div class="contact-card" tabindex="0">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <h3>Email</h3>
+                        <a href="mailto:jose.gilmar05@aluno.ifce.edu.br">jose.gilmar05@aluno.ifce.edu.br</a>
+                    </div>
+
+                    <div class="contact-card" tabindex="0">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        <h3>WhatsApp</h3>
+                        <a href="https://wa.me/5588921459439" target="_blank" rel="noopener noreferrer">(88) 92145-9439</a>
+                    </div>
+
+                    <div class="contact-card" tabindex="0">
+                        <i class="fas fa-sign-language" aria-hidden="true"></i>
+                        <h3>Atendimento em Libras</h3>
+                        <p>Agende pelo WhatsApp</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="main-footer">
@@ -163,16 +291,16 @@
                     <h3 id="footer-links">Links Rápidos</h3>
                     <ul>
                         <li><a href="index.html">Versão Padrão</a></li>
-                        <li><a href="sobre.html">Sobre Nós</a></li>
-                        <li><a href="admin/login.html">Cadastro</a></li>
+                        <li><a href="detalhes.html">Recursos</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
                     </ul>
                 </section>
 
-                <section aria-labelledby="footer-contact">
-                    <h3 id="footer-contact">Contato Acessível</h3>
+                <section aria-labelledby="footer-accessibility">
+                    <h3 id="footer-accessibility">Acessibilidade</h3>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> Email: jose.gilmar05@aluno.ifce.edu.br</li>
-                        <li><i class="fab fa-whatsapp"></i> WhatsApp: (88) 92145-9439</li>
+                        <li><a href="#" id="reset-accessibility">Redefinir Ajustes</a></li>
+                        <li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">Diretrizes WCAG</a></li>
                     </ul>
                 </section>
             </div>
@@ -183,6 +311,6 @@
         </div>
     </footer>
 
-    <script src="script2.js"></script>
+    <script src="script2.js" defer></script>
 </body>
 </html>

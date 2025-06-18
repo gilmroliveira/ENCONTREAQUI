@@ -1,57 +1,271 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes - encontreaqui</title>
+    <title>Detalhes dos Recursos | encontreaqui</title>
+    <meta name="description" content="Detalhes completos sobre ferramentas de IA, cursos e oportunidades para desenvolvedores">
+    <meta name="keywords" content="detalhes IA, cursos programação, monetização dev, recursos desenvolvedores">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://encontreaqui.com/detalhes.html">
+    <meta property="og:title" content="Detalhes dos Recursos | encontreaqui">
+    <meta property="og:description" content="Tudo sobre ferramentas, cursos e oportunidades para desenvolvedores">
+    <meta property="og:image" content="https://encontreaqui.com/images/og-details.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://encontreaqui.com/detalhes.html">
+    <meta property="twitter:title" content="Detalhes dos Recursos | encontreaqui">
+    <meta property="twitter:description" content="Tudo sobre ferramentas, cursos e oportunidades para desenvolvedores">
+    <meta property="twitter:image" content="https://encontreaqui.com/images/og-details.jpg">
+    
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
     <header>
-        <h1>encontreaqui</h1>
-        <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Alternar menu">
-        <label for="menu-toggle" class="menu-toggle open-menu">
-            <i class="fas fa-bars"></i>
-        </label>
-        <nav>
-            <label for="menu-toggle" class="menu-toggle close-menu">
-                <i class="fas fa-times"></i>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="encontreaqui.png" alt="Logo encontreaqui" class="logo-img" width="50" height="50">
+                <h1>encontreaqui</h1>
+            </div>
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Alternar menu">
+            <label for="menu-toggle" class="menu-toggle open-menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+                <span class="sr-only">Abrir menu</span>
             </label>
-            <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="https://www.magazinevoce.com.br/magazinecomlay/">Compre Aqui Diversos</a></li>
-                <li><a href="detalhes.html">Detalhes</a></li>
-                <li><a href="sobre.html">Sobre o Autor</a></li>
-                <li><a href="admin/login.html">Faça seu Cadastro</a></li>
-            </ul>
-        </nav>
-        <div class="container">
-            <img class="myimg" src="encontreaqui.png" alt="Logo do Meu Site">
+            <nav id="main-nav" aria-label="Navegação principal">
+                <label for="menu-toggle" class="menu-toggle close-menu">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                    <span class="sr-only">Fechar menu</span>
+                </label>
+                <ul>
+                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="index2.html">Versão Acessível</a></li>
+                    <li><a href="detalhes.html" class="active" aria-current="page">Detalhes</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="admin/login.html" class="highlight">Cadastro</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main>
-        <section id="detalhes-objeto">
-            <h2>Aqui você encontra de tudo!!</h2>
-            <article>
-                <h3>Tudo em um só lugar!</h3>
-                <img src="1399513737-incrivel-paisagem-natural-bela-cena-com-picos-de-alta-montanha-tatra-pedras-no-lago-de-montanha-agua-calma-do-lago-reflexao-ceu-colorido-por-do-sol-fundo-de-natureza-incrivel-caminhadas-de-aventura-de-outono-foto.jpg" alt="Tudo é aqui">
-                <p>Encontre aqui veio para facilitar sua vida sites, busca de trabalho, oportunidades cursos e muito mais!!!</p>
-                <ul>
-                    <li>Lugares</li>
-                    <li>Oportunidade de Emprego</li>
-                    <li>Apps</li>
-                    <li>Cursos</li>
-                </ul>
-            </article>
+    <main id="main-content">
+        <section class="resource-details section-padding">
+            <div class="container">
+                <h1 class="page-title">Detalhes dos Recursos</h1>
+                
+                <!-- Seção de Ferramentas de IA -->
+                <article class="resource-section" id="ia-tools">
+                    <h2 class="section-title">Ferramentas de IA Explicadas</h2>
+                    <div class="resource-grid">
+                        <div class="detail-card">
+                            <div class="detail-header">
+                                <i class="fas fa-robot" aria-hidden="true"></i>
+                                <h3>Phind - O Assistente de Código</h3>
+                            </div>
+                            <div class="detail-content">
+                                <p><strong>Como funciona:</strong> Phind é um motor de busca inteligente que entende perguntas técnicas e fornece respostas diretas com exemplos de código.</p>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> Suporte para múltiplas linguagens de programação</li>
+                                    <li><i class="fas fa-check"></i> Explicações passo a passo</li>
+                                    <li><i class="fas fa-check"></i> Integração com IDEs populares</li>
+                                </ul>
+                                <div class="pros-cons">
+                                    <div class="pros">
+                                        <h4>Vantagens:</h4>
+                                        <ul>
+                                            <li>Totalmente gratuito</li>
+                                            <li>Respostas em tempo real</li>
+                                            <li>Atualizações constantes</li>
+                                        </ul>
+                                    </div>
+                                    <div class="cons">
+                                        <h4>Limitações:</h4>
+                                        <ul>
+                                            <li>Inglês como idioma principal</li>
+                                            <li>Requer conexão estável</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="https://phind.com" target="_blank" rel="noopener noreferrer" class="btn">Experimentar Phind</a>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-header">
+                                <i class="fas fa-code" aria-hidden="true"></i>
+                                <h3>Codeium - O Copilot Gratuito</h3>
+                            </div>
+                            <div class="detail-content">
+                                <p><strong>Como funciona:</strong> Codeium é uma extensão que sugere completações de código diretamente no seu editor, aprendendo com seu estilo de programação.</p>
+                                <div class="compatibility">
+                                    <h4>Compatibilidade:</h4>
+                                    <div class="badges">
+                                        <span class="badge"><i class="fas fa-check-circle"></i> VS Code</span>
+                                        <span class="badge"><i class="fas fa-check-circle"></i> JetBrains</span>
+                                        <span class="badge"><i class="fas fa-check-circle"></i> Eclipse</span>
+                                    </div>
+                                </div>
+                                <a href="https://codeium.com" target="_blank" rel="noopener noreferrer" class="btn">Instalar Codeium</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Seção de Cursos -->
+                <article class="resource-section" id="courses">
+                    <h2 class="section-title">Cursos em Detalhe</h2>
+                    
+                    <div class="course-accordion">
+                        <details class="accordion-item" open>
+                            <summary class="accordion-header">
+                                <i class="fab fa-free-code-camp" aria-hidden="true"></i>
+                                <h3>FreeCodeCamp - Full Stack Grátis</h3>
+                                <span class="accordion-icon"></span>
+                            </summary>
+                            <div class="accordion-content">
+                                <p>Curso completo com mais de 300 horas de conteúdo, projetos práticos e certificação.</p>
+                                <div class="curriculum">
+                                    <h4>Grade Curricular:</h4>
+                                    <ol>
+                                        <li>Responsive Web Design (300h)</li>
+                                        <li>JavaScript Algorithms (300h)</li>
+                                        <li>Front End Libraries (300h)</li>
+                                        <li>Data Visualization (300h)</li>
+                                    </ol>
+                                </div>
+                                <div class="enrollment">
+                                    <a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer" class="btn">Inscrever-se Gratuitamente</a>
+                                    <p class="small-text">Sem pré-requisitos • Certificado incluído</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="accordion-item">
+                            <summary class="accordion-header">
+                                <i class="fas fa-university" aria-hidden="true"></i>
+                                <h3>CS50 de Harvard - Ciência da Computação</h3>
+                                <span class="accordion-icon"></span>
+                            </summary>
+                            <div class="accordion-content">
+                                <p>O famoso curso introdutório de Harvard agora disponível gratuitamente online.</p>
+                                <div class="stats">
+                                    <div class="stat-item">
+                                        <i class="fas fa-clock"></i>
+                                        <span>12 semanas</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <i class="fas fa-tasks"></i>
+                                        <span>10 projetos</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <i class="fas fa-language"></i>
+                                        <span>Legendas em PT</span>
+                                    </div>
+                                </div>
+                                <a href="https://cs50.harvard.edu" target="_blank" rel="noopener noreferrer" class="btn">Acessar Curso</a>
+                            </div>
+                        </details>
+                    </div>
+                </article>
+
+                <!-- Seção de Monetização -->
+                <article class="resource-section" id="monetization">
+                    <h2 class="section-title">Estratégias de Monetização</h2>
+                    
+                    <div class="monetization-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Freelancing Inicial</h3>
+                                <p>Comece com pequenos projetos em plataformas como Fiverr para ganhar experiência e portfólio.</p>
+                                <div class="platforms">
+                                    <a href="https://www.fiverr.com" target="_blank" rel="noopener noreferrer" class="platform-link">
+                                        <img src="https://logo.clearbit.com/fiverr.com" alt="Fiverr" loading="lazy" width="80">
+                                    </a>
+                                    <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer" class="platform-link">
+                                        <img src="https://logo.clearbit.com/upwork.com" alt="Upwork" loading="lazy" width="80">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Afiliados Tech</h3>
+                                <p>Ganhe comissão recomendando ferramentas que você já usa no dia a dia.</p>
+                                <ul class="affiliate-list">
+                                    <li><strong>DigitalOcean:</strong> Até $25 por indicação</li>
+                                    <li><strong>SiteGround:</strong> $50-$100 por venda</li>
+                                    <li><strong>Udemy:</strong> Até 50% do curso</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Produtos Próprios</h3>
+                                <p>Crie e venda seus próprios produtos digitais para desenvolvedores.</p>
+                                <div class="product-ideas">
+                                    <div class="idea">
+                                        <i class="fas fa-book"></i>
+                                        <span>E-books técnicos</span>
+                                    </div>
+                                    <div class="idea">
+                                        <i class="fas fa-video"></i>
+                                        <span>Cursos especializados</span>
+                                    </div>
+                                    <div class="idea">
+                                        <i class="fas fa-code"></i>
+                                        <span>Templates e plugins</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 José Gilmar Oliveira de Sá</p>
-        <p>JESUS TODA HONRA E GLÓRIA </p>
-        <p><a href="sobre.html">Sobre o Autor</a></p>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>encontreaqui</h4>
+                <p>Seu portal completo para desenvolvimento e crescimento profissional.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Links Úteis</h4>
+                <ul>
+                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="detalhes.html">Detalhes dos Recursos</a></li>
+                    <li><a href="sobre.html">Sobre o Autor</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> jose.gilmar05@aluno.ifce.edu.br</li>
+                    <li><i class="fab fa-github"></i> github.com/gilmroliveira</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 encontreaqui. Todos os direitos reservados.</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

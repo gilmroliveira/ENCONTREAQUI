@@ -222,17 +222,32 @@
         </section>
 
         <section class="newsletter section-padding" aria-labelledby="newsletter-heading">
-            <div class="newsletter-container">
-                <h3 id="newsletter-heading">Receba Novidades no Seu Email</h3>
-                <p>Inscreva-se para receber atualizações sobre novas ferramentas, cursos e oportunidades.</p>
-                <form id="newsletter-form">
-                    <label for="newsletter-email" class="sr-only">Seu email</label>
-                    <input type="email" id="newsletter-email" placeholder="Seu melhor email" required>
-                    <button type="submit" class="btn">Assinar</button>
-                    <div class="form-error" aria-live="polite"></div>
-                </form>
+    <div class="newsletter-container">
+        <h3 id="newsletter-heading">Junte-se à Nossa Comunidade</h3>
+        <p>Receba atualizações sobre ferramentas, cursos e oportunidades:</p>
+        
+        <!-- Newsletter (original) -->
+        <form id="newsletter-form" class="newsletter-form">
+            <label for="newsletter-email" class="sr-only">Seu email</label>
+            <input type="email" id="newsletter-email" placeholder="Seu melhor email" required>
+            <button type="submit" class="btn">Assinar Newsletter</button>
+            <div class="form-error" aria-live="polite"></div>
+        </form>
+
+        <!-- Botões para Grupos (WhatsApp e Telegram) -->
+        <div class="community-links">
+            <p>Ou entre nos nossos grupos:</p>
+            <div class="button-group">
+                <a href="https://chat.whatsapp.com/L5dLuVrfCBVKzH1Tb5PGsI" class="btn whatsapp-btn" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://t.me/+FIQJ2cGRcodhNDQ5" class="btn telegram-btn" target="_blank" rel="noopener">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer>

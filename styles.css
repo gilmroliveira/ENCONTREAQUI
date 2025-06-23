@@ -748,3 +748,32 @@ textarea:focus {
     width: auto;
     height: auto;
 }
+.community-links {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.community-links p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+}
+
+.telegram-btn {
+    background-color: #0088CC;
+    color: white;
+}
+
+.btn i {
+    margin-right: 0.5rem;
+}
